@@ -1,0 +1,3 @@
+interface MapInterface {
+    init(): void;
+}

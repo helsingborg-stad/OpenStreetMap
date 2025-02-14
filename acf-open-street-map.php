@@ -18,7 +18,10 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';
 }
 
-add_action('acf/include_field_types', function () {
-	include_once ACFOPENSTREETMAP_PATH . 'source/php/open-street-map-field.php';
-});
+add_action( 'acf/include_field_types', 'addAcfOpenStreetMapField' );
+
+function addAcfOpenStreetMapField() {
+    require_once ACFOPENSTREETMAP_PATH . 'source/php/acf-open-street-map-field.php';
+}
+
 ?>

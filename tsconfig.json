@@ -15,7 +15,5 @@
           "DOM.Iterable",
         ]
     },
-    "include": [
-      "js/*"
-    ]
+    "include": ["js/**/*"]
 }

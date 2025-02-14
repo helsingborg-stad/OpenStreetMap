@@ -1,1 +1,0 @@
-{"version":3,"file":"js/test.98500e7f1127043b42ac.js","mappings":"mBAMAA,QAAQC,IAAI,O","sources":["webpack:///./js/test.ts"],"sourcesContent":["\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.test = test;\nfunction test() {\n    console.log('test');\n}\nconsole.log(\"TETS\");\n"],"names":["console","log"],"sourceRoot":""}
