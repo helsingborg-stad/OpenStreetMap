@@ -1,3 +1,0 @@
-interface MapInterface {
-    init(): void;
-}

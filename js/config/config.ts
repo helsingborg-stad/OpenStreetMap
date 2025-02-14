@@ -1,5 +1,8 @@
 class Config implements ConfigInterface {
     constructor(
+        private id: string,
+        private mapElement: HTMLElement,
+        private containerElement: HTMLElement,
         private mapStyle: Nullable<string>,
         private startPosition: Nullable<LatLngObject>,
         private initialZoom: Nullable<number>,
@@ -7,6 +10,18 @@ class Config implements ConfigInterface {
         private minZoom: Nullable<number>,
         private attributionPosition: Nullable<string>
     ) {
+    }
+
+    public getId(): string {
+        return this.id;
+    }
+
+    public getMapElement(): HTMLElement {
+        return this.mapElement;
+    }
+
+    public getContainerElement(): HTMLElement {
+        return this.containerElement;
     }
 
     public getMapStyle(): string {

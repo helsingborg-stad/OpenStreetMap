@@ -3,6 +3,4 @@ type LatLngObject = {
     lng: number
 };
 
-type AttributionPosition = "topleft" | "topright" | "bottomleft" | "bottomright";
-
 type Nullable<T> = T|null;

@@ -1,20 +1,36 @@
-import L, { Layer, Map as LeafletMap, Marker, MarkerClusterGroup } from 'leaflet';
+import L, { Layer, Map as LeafletMap, Marker, MapOptions, MarkerCluster } from 'leaflet';
+import CreateMap from "./createMap/createMap";
+import MapInitializer from "./mapInitializer/mapInitializer";
+import SetupTiles from "./setupTiles/setupTiles";
 
-class Map implements MapInterface{
-    constructor(
-        private config: ConfigInterface,
-        private map: LeafletMap,
-        private markerClusterGroup: MarkerClusterGroup,
-        private setupTiles: SetupTilesInterface,
-        private mapElement: HTMLElement,
-        private containerElement: HTMLElement
-    ) {
+class Map {
+    private map!: LeafletMap; 
+    private constructor(private config: ConfigInterface) {}
 
+    private initialize(): void {
+        this.map = new CreateMap(this.config.getId(), {
+            scrollWheelZoom: false,
+            keyboard: false,
+            attributionControl: false,
+        }).create();
+
+        new MapInitializer(
+            this.config,
+            this.map,
+            new SetupTiles(this.map, this.config)
+        ).initialize();
     }
 
-    public init(): void {
-        this.map.setView([this.config.getStartPosition().lat, this.config.getStartPosition().lng], this.config.getInitialZoom());
-        this.setupTiles.set();
+    public getMap(): LeafletMap {
+        return this.map;
+    }
+
+    public getConfig(): ConfigInterface {
+        return this.config;
+    }
+
+    public static mapFactory(config: ConfigInterface) {
+        return new Map(config).initialize();
     }
 }
 
