@@ -4,10 +4,10 @@ class Map implements MapInterface{
     constructor(
         private config: ConfigInterface,
         private map: LeafletMap,
-        private markerClusterGroup: null|MarkerClusterGroup,
+        private markerClusterGroup: MarkerClusterGroup,
         private setupTiles: SetupTilesInterface,
-        private mapElement: null|HTMLElement,
-        private containerElement: null|HTMLElement
+        private mapElement: HTMLElement,
+        private containerElement: HTMLElement
     ) {
 
     }
