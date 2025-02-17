@@ -8,6 +8,8 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
+        "rootDir": "./js",
+        "outDir": "./dist",
         "skipLibCheck": true,
         "lib": [
           "ES2021",

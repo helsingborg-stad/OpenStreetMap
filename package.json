@@ -1,6 +1,9 @@
 {
     "name": "@helsingborg-stad/openstreetmap",
     "appname": "openstreetmap",
+    "scripts": {
+        "build": "tsc"
+    },
     "browserslist": [
         "> 1%",
         "not dead"
