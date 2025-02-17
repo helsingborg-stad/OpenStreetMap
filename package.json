@@ -6,7 +6,9 @@
         "not dead"
     ],
     "files": [
-        "dist/"
+        "js/*",
+        "sass/*",
+        "README.md"
     ],
     "devDependencies": {
         "@types/leaflet": "1.9.16",
