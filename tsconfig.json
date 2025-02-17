@@ -4,7 +4,6 @@
         "checkJs": false,
         "target": "es6",
         "module": "commonjs",
-        "typeRoots": ["./js/types"],
         "useDefineForClassFields": true,
         "declaration": true,
         "esModuleInterop": true,
@@ -19,5 +18,5 @@
           "DOM.Iterable",
         ]
     },
-    "include": ["js/**/*"]
+    "include": ["js/**/*.ts"]
 }
