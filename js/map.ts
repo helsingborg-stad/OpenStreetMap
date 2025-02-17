@@ -6,7 +6,7 @@ import SetupTiles from "./setupMap/setupTiles";
 class Map implements MapInterface {
     private map: LeafletMap;
 
-    constructor(private config: MapConfigInterface) {
+    constructor(private config: ConfigInterface) {
         this.map = new CreateMap(this.config.getId(), {
             scrollWheelZoom: false,
             keyboard: false,
@@ -24,11 +24,11 @@ class Map implements MapInterface {
         return this.map;
     }
 
-    public getConfig(): MapConfigInterface {
+    public getConfig(): ConfigInterface {
         return this.config;
     }
 }
 
-export function createMap(config: MapConfigInterface): MapInterface {
+export function createMap(config: ConfigInterface): MapInterface {
     return new Map(config);
 }

@@ -2,7 +2,7 @@ import { Map as LeafletMap } from 'leaflet';
 
 class MapInitializer implements MapInitializerInterface {
     constructor(
-        private config: MapConfigInterface,
+        private config: ConfigInterface,
         private map: LeafletMap,
         private setupTiles: SetupTilesInterface,
     ) {

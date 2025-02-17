@@ -1,4 +1,4 @@
-class MapConfig implements MapConfigInterface {
+class Config implements ConfigInterface {
     constructor(
         private id: string,
         private mapElement: HTMLElement,
@@ -51,4 +51,4 @@ class MapConfig implements MapConfigInterface {
     }
 }
 
-export default MapConfig;
+export default Config;

@@ -1,4 +1,4 @@
-interface MapConfigInterface {
+interface ConfigInterface {
     getId(): string;
     // supported map appearances: 'dark', 'pale', 'default', 'color'
     getMapStyle(): string;
