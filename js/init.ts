@@ -1,5 +1,5 @@
-import Config from './config/config';
-import Map from './map';
+import MapConfig from './config/mapConfig';
+import { createMap } from './map';
 
 document.addEventListener('DOMContentLoaded', () => {
     const attribute = 'data-js-openstreetmap';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const {mapStyle, startPosition, initialZoom} = getSettingsFromMapContainer(mapContainer);
 
-        const config = new Config(
+        const config = new MapConfig(
             id,
             mapContainer,
             mapElement as HTMLElement,
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             null
         );
 
-        Map.mapFactory(config);
+        const mapInstance = createMap(config);
     });
 });
 
