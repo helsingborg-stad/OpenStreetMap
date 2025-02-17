@@ -10,8 +10,9 @@
         "not dead"
     ],
     "main": "dist/map.js",
-    "style": "sass/map.scss",
+    "style": "dist/openstreetmap.css",
     "files": [
+        "dist/*",
         "js/*",
         "sass/*",
         "README.md"
