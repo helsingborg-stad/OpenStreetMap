@@ -1,13 +1,24 @@
-import { LatLngObject } from './types';
+import { LatLngObject, Nullable } from './types';
+
+export type MapStyle = "dark"|"pale"|"default"|"color";
+export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
+
+export interface Options {
+    id: string;
+    mapStyle: Nullable<MapStyle>;
+    startPosition: Nullable<LatLngObject>;
+    initialZoom: Nullable<number>;
+    maxZoom: Nullable<number>
+    minZoom: Nullable<number>
+    attributionPosition: Nullable<AttributionPosition>
+}
 
 export interface ConfigInterface {
     getId(): string;
-    // supported map appearances: 'dark', 'pale', 'default', 'color'
-    getMapStyle(): string;
+    getMapStyle(): MapStyle;
     getStartPosition(): LatLngObject;
     getInitialZoom(): number;
     getMaxZoom(): number;
     getMinZoom(): number;
-    // supported positions 'topleft', 'topright', 'bottomleft' or 'bottomright';
-    getAttributionPosition(): string;
+    getAttributionPosition(): AttributionPosition;
 }

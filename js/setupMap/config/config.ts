@@ -1,68 +1,37 @@
-// import { ConfigInterface } from "./configInterface";
 import { LatLngObject, Nullable } from "../../types/types";
+import { ConfigInterface, Options, AttributionPosition, MapStyle } from "../../types/config";
 
-export interface ConfigInterface {
-    getId(): string;
-    // supported map appearances: 'dark', 'pale', 'default', 'color'
-    getMapStyle(): string;
-    getStartPosition(): LatLngObject;
-    getInitialZoom(): number;
-    getMaxZoom(): number;
-    getMinZoom(): number;
-    // supported positions 'topleft', 'topright', 'bottomleft' or 'bottomright';
-    getAttributionPosition(): string;
-}
-class Config implements ConfigInterface {
-    constructor(
-        private id: string,
-        private mapElement: HTMLElement,
-        private containerElement: HTMLElement,
-        private mapStyle: Nullable<string>,
-        private startPosition: Nullable<LatLngObject>,
-        private initialZoom: Nullable<number>,
-        private maxZoom: Nullable<number>,
-        private minZoom: Nullable<number>,
-        private attributionPosition: Nullable<string>
-    ) {
+export class Config implements ConfigInterface {
+    constructor(private options: Options) {
     }
 
     public getId(): string {
-        return this.id;
+        return this.options.id;
     }
 
-    public getMapElement(): HTMLElement {
-        return this.mapElement;
-    }
-
-    public getContainerElement(): HTMLElement {
-        return this.containerElement;
-    }
-
-    public getMapStyle(): string {
-        return this.mapStyle ?? 'default';
+    public getMapStyle(): MapStyle {
+        return this.options.mapStyle ?? 'default';
     }
 
     public getStartPosition(): LatLngObject {
-        return this.startPosition && this.startPosition.lat && this.startPosition.lng ? 
-            this.startPosition : 
+        return this.options.startPosition && this.options.startPosition.lat && this.options.startPosition.lng ? 
+            this.options.startPosition : 
             { lat: 59.32932, lng: 18.06858 };
     }
 
     public getInitialZoom(): number {
-        return this.initialZoom ?? 16;
+        return this.options.initialZoom ?? 16;
     }
 
     public getMaxZoom(): number {
-        return this.maxZoom ?? 19;
+        return this.options.maxZoom ?? 19;
     }
 
     public getMinZoom(): number {
-        return this.minZoom ?? 0;
+        return this.options.minZoom ?? 0;
     }
 
-    public getAttributionPosition(): string {
-        return this.attributionPosition ?? 'bottomleft';
+    public getAttributionPosition(): AttributionPosition {
+        return this.options.attributionPosition ?? 'bottomleft';
     }
 }
-
-export default Config;
