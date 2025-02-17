@@ -1,8 +1,8 @@
-interface SetupTilesInterface {
+export interface SetupTilesInterface {
     set(): void;
 }
 
-type Tiles = {
+export type Tiles = {
     url: string,
     attribution: string
 }

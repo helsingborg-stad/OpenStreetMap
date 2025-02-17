@@ -1,4 +1,6 @@
-interface ConfigInterface {
+import { LatLngObject } from './types';
+
+export interface ConfigInterface {
     getId(): string;
     // supported map appearances: 'dark', 'pale', 'default', 'color'
     getMapStyle(): string;

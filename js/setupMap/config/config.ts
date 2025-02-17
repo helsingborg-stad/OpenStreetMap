@@ -1,3 +1,17 @@
+// import { ConfigInterface } from "./configInterface";
+import { LatLngObject, Nullable } from "../../types/types";
+
+export interface ConfigInterface {
+    getId(): string;
+    // supported map appearances: 'dark', 'pale', 'default', 'color'
+    getMapStyle(): string;
+    getStartPosition(): LatLngObject;
+    getInitialZoom(): number;
+    getMaxZoom(): number;
+    getMinZoom(): number;
+    // supported positions 'topleft', 'topright', 'bottomleft' or 'bottomright';
+    getAttributionPosition(): string;
+}
 class Config implements ConfigInterface {
     constructor(
         private id: string,

@@ -1,3 +1,0 @@
-interface MapInitializerInterface {
-    initialize(): void;
-}

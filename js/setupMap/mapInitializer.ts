@@ -1,4 +1,7 @@
 import { Map as LeafletMap } from 'leaflet';
+import { ConfigInterface } from '../types/config';
+import { MapInitializerInterface } from '../types/mapInitializer';
+import { SetupTilesInterface } from '../types/setupTiles';
 
 class MapInitializer implements MapInitializerInterface {
     constructor(

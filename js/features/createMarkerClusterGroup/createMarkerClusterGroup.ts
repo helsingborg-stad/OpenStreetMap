@@ -1,5 +1,5 @@
 import L, { Layer, Map as LeafletMap, MarkerClusterGroup, MarkerClusterGroupOptions } from 'leaflet';
-import { CreateMarkerClusterGroupInterface } from './createMarkerClusterGroupInterface';
+import { CreateMarkerClusterGroupInterface } from '../../types/createMarkerClusterGroup';
 import 'leaflet.markercluster';
 
 
