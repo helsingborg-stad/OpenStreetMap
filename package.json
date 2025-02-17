@@ -1,10 +1,6 @@
 {
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "watch": "cross-env NODE_ENV=development webpack --watch",
-        "build:dev": "cross-env NODE_ENV=development webpack",
-        "build": "cross-env NODE_ENV=production webpack"
-    },
+    "name": "@helsingborg-stad/openstreetmap",
+    "appname": "openstreetmap",
     "browserslist": [
         "> 1%",
         "not dead"
@@ -17,19 +13,11 @@
         "@types/leaflet.markercluster": "1.5.1",
         "leaflet": "1.9.4",
         "leaflet.markercluster": "1.5.3",
-        "sass": "^1.49.7"
+        "sass": "^1.49.7",
+        "typescript": "^5.7.3"
     },
     "browser": {
         "child_process": false
-    },
-    "babel": {
-        "presets": [
-            "@babel/preset-env",
-            "@babel/preset-react"
-        ],
-        "plugins": [
-            "@babel/plugin-proposal-class-properties"
-        ]
     },
     "version": "0.2.3"
 }
