@@ -1,7 +1,7 @@
-import L, { Layer, Map as LeafletMap, Marker, MapOptions, MarkerCluster } from 'leaflet';
-import CreateMap from "./createMap/createMap";
-import MapInitializer from "./mapInitializer/mapInitializer";
-import SetupTiles from "./setupTiles/setupTiles";
+import { Map as LeafletMap } from 'leaflet';
+import CreateMap from "./setupMap/createMap";
+import MapInitializer from "./setupMap/mapInitializer";
+import SetupTiles from "./setupMap/setupTiles";
 
 class Map implements MapInterface {
     private map: LeafletMap;
