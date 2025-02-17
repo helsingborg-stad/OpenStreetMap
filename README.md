@@ -33,5 +33,5 @@ This feature integrates OpenStreetMap into your application, allowing you to dis
 
 ## Meta  
 
-- **Author:** Development Team  
-- **Initial Release Date:** October, 2023
+- **Author:** Helsingborg Stad
+- **Initial Release Date:** February, 2025
