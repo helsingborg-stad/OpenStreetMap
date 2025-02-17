@@ -5,6 +5,7 @@
         "target": "es6",
         "module": "commonjs",
         "useDefineForClassFields": true,
+        "declaration": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
