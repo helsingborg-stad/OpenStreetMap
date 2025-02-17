@@ -1,4 +1,4 @@
-import L, { Layer, Map as LeafletMap, Marker, MapOptions } from 'leaflet';
+import { Map as LeafletMap } from 'leaflet';
 
 export interface CreateMapInterface {
     create(): LeafletMap;

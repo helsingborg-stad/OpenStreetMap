@@ -3,11 +3,10 @@ import CreateMap from "./createMap/createMap";
 import MapInitializer from "./mapInitializer/mapInitializer";
 import SetupTiles from "./setupTiles/setupTiles";
 
-class Map {
-    private map!: LeafletMap; 
-    private constructor(private config: ConfigInterface) {}
+class Map implements MapInterface {
+    private map: LeafletMap;
 
-    private initialize(): void {
+    constructor(private config: MapConfigInterface) {
         this.map = new CreateMap(this.config.getId(), {
             scrollWheelZoom: false,
             keyboard: false,
@@ -25,13 +24,11 @@ class Map {
         return this.map;
     }
 
-    public getConfig(): ConfigInterface {
+    public getConfig(): MapConfigInterface {
         return this.config;
-    }
-
-    public static mapFactory(config: ConfigInterface) {
-        return new Map(config).initialize();
     }
 }
 
-export default Map;
+export function createMap(config: MapConfigInterface): MapInterface {
+    return new Map(config);
+}

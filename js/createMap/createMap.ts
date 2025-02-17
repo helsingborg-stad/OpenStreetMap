@@ -1,4 +1,4 @@
-import L, { Layer, Map as LeafletMap, Marker, MapOptions, MarkerCluster } from 'leaflet';
+import L, { Map as LeafletMap, MapOptions } from 'leaflet';
 import { CreateMapInterface } from './createMapInterface';
 
 class CreateMap implements CreateMapInterface {

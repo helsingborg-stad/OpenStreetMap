@@ -1,7 +1,5 @@
-interface ConfigInterface {
+interface MapConfigInterface {
     getId(): string;
-    getMapElement(): HTMLElement;
-    getContainerElement(): HTMLElement;
     // supported map appearances: 'dark', 'pale', 'default', 'color'
     getMapStyle(): string;
     getStartPosition(): LatLngObject;

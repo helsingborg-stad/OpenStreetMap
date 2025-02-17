@@ -3,7 +3,7 @@ import L, { ControlPosition, Map as LeafletMap } from 'leaflet';
 class SetupTiles {
     constructor(
         private map: LeafletMap,
-        private config: ConfigInterface
+        private config: MapConfigInterface
     ) {
     }
 
