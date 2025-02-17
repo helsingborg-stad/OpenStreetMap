@@ -3,14 +3,14 @@ import { LatLngObject, Nullable } from './types';
 export type MapStyle = "dark"|"pale"|"default"|"color";
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 
-export interface Options {
+export type Options = {
     id: string;
-    mapStyle: Nullable<MapStyle>;
-    startPosition: Nullable<LatLngObject>;
-    initialZoom: Nullable<number>;
-    maxZoom: Nullable<number>
-    minZoom: Nullable<number>
-    attributionPosition: Nullable<AttributionPosition>
+    mapStyle?: Nullable<MapStyle>;
+    startPosition?: Nullable<LatLngObject>;
+    initialZoom?: Nullable<number>;
+    maxZoom?: Nullable<number>
+    minZoom?: Nullable<number>
+    attributionPosition?: Nullable<AttributionPosition>
 }
 
 export interface ConfigInterface {
