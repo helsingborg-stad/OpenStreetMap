@@ -2,7 +2,7 @@
     "name": "@helsingborg-stad/openstreetmap",
     "appname": "openstreetmap",
     "scripts": {
-        "build:sass": "sass sass/openstreetmap.scss dist/map.css",
+        "build:sass": "sass sass/openstreetmap.scss dist/openstreetmap.css",
         "build": "tsc && npm run build:sass"
     },
     "browserslist": [
