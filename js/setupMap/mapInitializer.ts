@@ -1,11 +1,12 @@
 import { Map as LeafletMap } from 'leaflet';
-import { ConfigInterface } from './config/configInterface';
 import { MapInitializerInterface } from './mapInitializerInterface';
 import { SetupTilesInterface } from './setupTilesInterface';
+import { ConfigOptions } from '../types';
+
 
 class MapInitializer implements MapInitializerInterface {
     constructor(
-        private config: ConfigInterface,
+        private config: ConfigOptions,
         private map: LeafletMap,
         private setupTiles: SetupTilesInterface,
     ) {
@@ -14,8 +15,8 @@ class MapInitializer implements MapInitializerInterface {
 
     public initialize(): void {
         this.map.setView(
-            [this.config.getStartPosition().lat, this.config.getStartPosition().lng],
-            this.config.getInitialZoom()
+            [this.config.center.lat, this.config.center.lng],
+            this.config.zoom
         );
 
         this.setupTiles.set();

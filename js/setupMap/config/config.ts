@@ -1,37 +1,35 @@
-import { LatLngObject } from "../../types";
-import { ConfigInterface, Options, AttributionPosition, MapStyle } from "./configInterface";
+import { PartialConfigOptions, ConfigOptions } from "../../types";
+import { ConfigInterface } from "./configInterface";
 
 export class Config implements ConfigInterface {
-    constructor(private options: Options) {
+    private options: ConfigOptions;
+    constructor(options: PartialConfigOptions) {
+        this.options = this.getOptions(options);
     }
 
-    public getId(): string {
-        return this.options.id;
+    private getOptions(options: PartialConfigOptions): ConfigOptions {
+        return {
+            ...this.getDefaultOptions(),
+            ...options
+        }
     }
 
-    public getMapStyle(): MapStyle {
-        return this.options.mapStyle ?? 'default';
+    private getDefaultOptions(): ConfigOptions {
+        return {
+            id: '',
+            mapStyle: 'default',
+            keyboard: false,
+            attributionPosition: 'bottomleft',
+            center: { lat: 59.32932, lng: 18.06858 },
+            zoom: 16,
+            maxZoom: 19,
+            minZoom: 0,
+            zoomControl: false,
+            scrollWheelZoom: false
+        }
     }
 
-    public getStartPosition(): LatLngObject {
-        return this.options.startPosition && this.options.startPosition.lat && this.options.startPosition.lng ? 
-            this.options.startPosition : 
-            { lat: 59.32932, lng: 18.06858 };
-    }
-
-    public getInitialZoom(): number {
-        return this.options.initialZoom ?? 16;
-    }
-
-    public getMaxZoom(): number {
-        return this.options.maxZoom ?? 19;
-    }
-
-    public getMinZoom(): number {
-        return this.options.minZoom ?? 0;
-    }
-
-    public getAttributionPosition(): AttributionPosition {
-        return this.options.attributionPosition ?? 'bottomleft';
+    public getConfig(): ConfigOptions {
+        return this.options;
     }
 }
