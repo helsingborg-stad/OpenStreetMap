@@ -13,8 +13,6 @@
     "style": "dist/openstreetmap.css",
     "files": [
         "dist/*",
-        "js/*",
-        "sass/*",
         "README.md"
     ],
     "types": "dist/index.d.ts",
