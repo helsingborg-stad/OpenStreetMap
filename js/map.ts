@@ -2,8 +2,8 @@ import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
 import MapInitializer from "./setupMap/mapInitializer";
 import SetupTiles from "./setupMap/setupTiles";
-import { MapInterface } from './types/map';
-import { ConfigInterface } from './types/config';
+import { ConfigInterface } from './setupMap/config/configInterface';
+import { MapInterface } from './mapInterface';
 
 class Map implements MapInterface {
     private map: LeafletMap;

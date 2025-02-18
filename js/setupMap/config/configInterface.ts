@@ -1,4 +1,4 @@
-import { LatLngObject, Nullable } from './types';
+import { LatLngObject, Nullable } from '../../types';
 
 export type MapStyle = "dark"|"pale"|"default"|"color";
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";

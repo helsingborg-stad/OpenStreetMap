@@ -1,5 +1,5 @@
-import { LatLngObject, Nullable } from "../../types/types";
-import { ConfigInterface, Options, AttributionPosition, MapStyle } from "../../types/config";
+import { LatLngObject } from "../../types";
+import { ConfigInterface, Options, AttributionPosition, MapStyle } from "./configInterface";
 
 export class Config implements ConfigInterface {
     constructor(private options: Options) {
