@@ -1,6 +1,6 @@
 import L, { ControlPosition, Map as LeafletMap } from 'leaflet';
-import { ConfigInterface } from '../types/config';
-import { Tiles } from '../types/setupTiles';
+import { ConfigInterface } from './config/configInterface';
+import { Tiles } from './setupTilesInterface';
 
 class SetupTiles {
     constructor(
