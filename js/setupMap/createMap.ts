@@ -12,7 +12,9 @@ class CreateMap implements CreateMapInterface {
             {
                 scrollWheelZoom: this.options.scrollWheelZoom,
                 keyboard: this.options.keyboard,
-                attributionControl: false
+                attributionControl: false,
+                center: this.options.center,
+                zoom: this.options.zoom,
             }
         );
     }

@@ -1,8 +1,6 @@
 import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
-import MapInitializer from "./setupMap/mapInitializer";
 import SetupTiles from "./setupMap/setupTiles";
-import { ConfigInterface } from './setupMap/config/configInterface';
 import { ConfigOptions, PartialConfigOptions } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
@@ -12,12 +10,7 @@ class Map implements MapInterface {
 
     constructor(private options: ConfigOptions) {
         this.map = new CreateMap(this.options).create();
-
-        new MapInitializer(
-            this.options,
-            this.map,
-            new SetupTiles(this.map, this.options)
-        ).initialize();
+        new SetupTiles(this.map, this.options).set();
     }
 
     public getMap(): LeafletMap {
