@@ -1,8 +1,15 @@
-// Classes, Methods
+/* Classes and Methods */
 export { createMap } from './map';
 export { Config } from './setupMap/config/config';
 
-// Types
-// export { MapInterface } from './types/map';
-// export { ConfigInterface } from './types/config';
-// export { LatLngObject, Nullable } from './types/types';
+/* Interfaces */
+// Main
+export * from './mapInterface';
+export * from './types';
+
+// Setup map
+export * from './setupMap/createMapInterface';
+export * from './setupMap/config/configInterface';
+
+// Features
+export * from './features/createMarkerClusterGroup/createMarkerClusterGroupInterface';
