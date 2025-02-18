@@ -1,6 +1,10 @@
 {
     "name": "@helsingborg-stad/openstreetmap",
     "appname": "openstreetmap",
+    "scripts": {
+        "build:sass": "sass sass/openstreetmap.scss dist/openstreetmap.css",
+        "build": "tsc && npm run build:sass"
+    },
     "browserslist": [
         "> 1%",
         "not dead"
@@ -8,10 +12,10 @@
     "main": "dist/index.js",
     "style": "dist/openstreetmap.css",
     "files": [
-        "js/*",
-        "sass/*",
+        "dist/*",
         "README.md"
     ],
+    "types": "dist/index.d.ts",
     "devDependencies": {
         "@types/leaflet": "1.9.16",
         "@types/leaflet.markercluster": "1.5.1",
