@@ -1,30 +1,30 @@
 import L, { ControlPosition, Map as LeafletMap } from 'leaflet';
-import { ConfigInterface } from './config/configInterface';
 import { Tiles } from './setupTilesInterface';
+import { ConfigOptions } from '../types';
 
 class SetupTiles {
     constructor(
         private map: LeafletMap,
-        private config: ConfigInterface
+        private config: ConfigOptions
     ) {
     }
 
     public set(): void {
         const tileLayer = this.getTileLayer();
         L.tileLayer(tileLayer.url, {
-            maxZoom: this.config.getMaxZoom(),
-            minZoom: this.config.getMinZoom(),
+            maxZoom: this.config.maxZoom,
+            minZoom: this.config.minZoom,
         }).addTo(this.map);
 
         L.control.attribution({
-            position: this.config.getAttributionPosition() as ControlPosition,
+            position: this.config.attributionPosition as ControlPosition,
         }).addAttribution(
             tileLayer.attribution
         ).setPrefix(false).addTo(this.map);
     }
 
     private getTileLayer(): Tiles {
-        switch (this.config.getMapStyle()) {
+        switch (this.config.mapStyle) {
             case 'dark':
                 return {
                     attribution:
