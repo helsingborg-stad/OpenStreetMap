@@ -3,16 +3,14 @@ import CreateMap from "./setupMap/createMap";
 import MapInitializer from "./setupMap/mapInitializer";
 import SetupTiles from "./setupMap/setupTiles";
 import { ConfigInterface } from './setupMap/config/configInterface';
-import { ConfigOptions } from './types';
+import { ConfigOptions, PartialConfigOptions } from './types';
 import { MapInterface } from './mapInterface';
+import { Config } from './setupMap/config/config';
 
 class Map implements MapInterface {
     private map: LeafletMap;
-    private options: ConfigOptions;
 
-    constructor(config: ConfigInterface) {
-        this.options = config.getConfig();
-
+    constructor(private options: ConfigOptions) {
         this.map = new CreateMap(this.options).create();
 
         new MapInitializer(
@@ -31,6 +29,7 @@ class Map implements MapInterface {
     }
 }
 
-export function createMap(config: ConfigInterface): MapInterface {
+export function createMap(partialConfig: PartialConfigOptions): MapInterface {
+    const config = new Config(partialConfig).getConfig();
     return new Map(config);
 }
