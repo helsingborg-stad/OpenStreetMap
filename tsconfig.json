@@ -5,12 +5,10 @@
         "target": "es6",
         "module": "commonjs",
         "useDefineForClassFields": true,
-        "declaration": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "rootDir": "./js",
-        "outDir": "./dist",
         "skipLibCheck": true,
         "lib": [
           "ES2021",
