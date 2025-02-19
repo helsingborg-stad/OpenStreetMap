@@ -2,15 +2,35 @@ import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
 import SetupTiles from "./setupMap/setupTiles";
 import { ConfigOptions, PartialConfigOptions } from './types';
-import { MapInterface } from './mapInterface';
+import { MapEventCallback, MapInterface, MapEvent } from './mapInterface';
 import { Config } from './setupMap/config/config';
 
 class Map implements MapInterface {
     private map: LeafletMap;
+    private listeners: { [key: string]: MapEventCallback[] } = {};
 
     constructor(private options: ConfigOptions) {
         this.map = new CreateMap(this.options).create();
-        new SetupTiles(this.map, this.options).set();
+        new SetupTiles(this, this.options).set();
+        this.setupListeners();
+    }
+
+    public addListener(event: MapEvent, callback: MapEventCallback) {
+        if (!this.listeners[event]) {
+            this.listeners[event] = [];
+        }
+
+        this.listeners[event].push(callback);
+    }
+
+    private setupListeners(): void {
+       ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
+            this.getMap().on(event, (e) => {
+                this.listeners[event]?.forEach((callback) => {
+                    callback(e);
+                });
+            });
+        });
     }
 
     public getMap(): LeafletMap {
