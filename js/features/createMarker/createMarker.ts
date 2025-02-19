@@ -1,6 +1,8 @@
-import L, { Marker } from 'leaflet';
+import L, { Marker as LeafletMarker } from 'leaflet';
 import { MapInterface } from '../../mapInterface';
 import { CreateMarkerInterface, MarkerOptions, TooltipOptions } from './createMarkerInterface';
+import { LatLngObject } from '../../types';
+import Marker from './marker';
 
 export class CreateMarker implements CreateMarkerInterface {
     constructor(private mapInstance: MapInterface) {
@@ -24,6 +26,8 @@ export class CreateMarker implements CreateMarkerInterface {
             });
         }
 
-        return marker;
+        marker.addTo(this.mapInstance.getMap());
+
+        return new Marker(this.mapInstance, marker);
     }
 }
