@@ -1,4 +1,5 @@
 import { LatLngObject } from "../../types";
+import { MarkerInterface } from "./markerInterface";
 
 export type TooltipOptions = {
     content: HTMLElement|string;
@@ -14,5 +15,5 @@ export type MarkerOptions = {
 }
 
 export interface CreateMarkerInterface {
-    create(markerOptions: MarkerOptions, tooltipOptions: null|TooltipOptions): void; 
+    create(markerOptions: MarkerOptions, tooltipOptions?: null|TooltipOptions): MarkerInterface; 
 }
