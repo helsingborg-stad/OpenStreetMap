@@ -12,6 +12,7 @@ export type MarkerOptions = {
     position: LatLngObject;
     icon: HTMLElement|string;
     className?: string;
+    draggable?: boolean;
 }
 
 export interface CreateMarkerInterface {

@@ -15,7 +15,8 @@ export class CreateMarker implements CreateMarkerInterface {
         });
 
         const marker = L.marker(markerOptions.position, {
-            icon: icon
+            icon: icon,
+            draggable: markerOptions.draggable ?? false,
         });
 
         if (tooltipOptions) {
