@@ -1,8 +1,8 @@
 import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
 import SetupTiles from "./setupMap/setupTiles";
-import { ConfigOptions, PartialConfigOptions } from './types';
-import { MapEventCallback, MapInterface, MapEvent } from './mapInterface';
+import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback } from './types';
+import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
 
 class Map implements MapInterface {
