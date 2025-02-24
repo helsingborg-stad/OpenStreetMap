@@ -13,7 +13,7 @@ export * from './setupMap/config/configInterface';
 
 // Features
 export { CreateMarker } from './features/createMarker/createMarker';
-export { AddLayer } from './features/addLayer/addLayer';
-export * from './features/addLayer/addLayerInterface';
+export { CreateLayerGroup } from './features/createLayerGroup/createLayerGroup';
+export * from './features/createLayerGroup/createLayerGroupInterface';
 export * from './features/createMarkerClusterGroup/createMarkerClusterGroupInterface';
 export * from './features/createMarker/createMarkerInterface';
