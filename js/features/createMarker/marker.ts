@@ -1,13 +1,19 @@
 import { MapInterface } from "../../mapInterface";
-import L, { Marker as LeafletMarker } from 'leaflet';
+import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup } from 'leaflet';
 import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
+import { AddTo } from "../../addToInterface";
+import { Addable } from "../../addableInterface";
 
-class Marker implements MarkerInterface {
+class Marker implements MarkerInterface, AddTo {
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
     constructor(private mapInstance: MapInterface, private marker: LeafletMarker) {
         this.setupListeners();
+    }
+
+    public addTo(addable: Addable): void {
+        this.getMarker().addTo(addable.getAddable());
     }
 
     public addListener(event: MapEvent, callback: MapEventCallback) {
@@ -28,6 +34,10 @@ class Marker implements MarkerInterface {
 
     public removeMarker() {
         this.mapInstance.getMap().removeLayer(this.marker);
+    }
+
+    public getMarker(): LeafletMarker {
+        return this.marker;
     }
 
     private setupListeners(): void {
