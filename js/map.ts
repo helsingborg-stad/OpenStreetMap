@@ -4,8 +4,9 @@ import SetupTiles from "./setupMap/setupTiles";
 import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
+import { Addable } from './addableInterface';
 
-class Map implements MapInterface {
+class Map implements MapInterface, Addable {
     private map: LeafletMap;
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
@@ -39,6 +40,10 @@ class Map implements MapInterface {
 
     public getOptions(): ConfigOptions {
         return this.options;
+    }
+
+    public getAddable() {
+        return this.getMap();
     }
 }
 
