@@ -1,7 +1,7 @@
 import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
 import SetupTiles from "./setupMap/setupTiles";
-import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback } from './types';
+import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
 import { Addable } from './addableInterface';
@@ -24,14 +24,12 @@ class Map implements MapInterface, Addable {
         this.listeners[event].push(callback);
     }
 
-    private setupListeners(): void {
-       ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
-            this.getMap().on(event, (e) => {
-                this.listeners[event]?.forEach((callback) => {
-                    callback(e);
-                });
-            });
-        });
+    public flyTo(latlng: LatLngObject, zoom: number|null = null) {
+        this.getMap().flyTo(latlng, zoom ?? this.getZoom());
+    }
+
+    public getZoom() {
+        return this.getMap().getZoom();
     }
 
     public getMap(): LeafletMap {
@@ -45,9 +43,19 @@ class Map implements MapInterface, Addable {
     public getAddable() {
         return this.getMap();
     }
+
+    private setupListeners(): void {
+       ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
+            this.getMap().on(event, (e) => {
+                this.listeners[event]?.forEach((callback) => {
+                    callback(e);
+                });
+            });
+        });
+    }
 }
 
-export function createMap(partialConfig: PartialConfigOptions): MapInterface {
+export function createMap(partialConfig: PartialConfigOptions): MapInterface&Addable {
     const config = new Config(partialConfig).getConfig();
     return new Map(config);
 }

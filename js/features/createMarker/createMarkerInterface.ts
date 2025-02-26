@@ -1,3 +1,4 @@
+import { AddTo } from "../../addToInterface";
 import { LatLngObject } from "../../types";
 import { MarkerInterface } from "./markerInterface";
 
@@ -16,5 +17,5 @@ export type MarkerOptions = {
 }
 
 export interface CreateMarkerInterface {
-    create(markerOptions: MarkerOptions, tooltipOptions?: null|TooltipOptions): MarkerInterface; 
+    create(markerOptions: MarkerOptions, tooltipOptions?: null|TooltipOptions): MarkerInterface&AddTo; 
 }
