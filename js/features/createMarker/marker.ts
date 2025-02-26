@@ -32,8 +32,8 @@ class Marker implements MarkerInterface, AddTo {
         return this.marker.getLatLng();
     }
 
-    public removeMarker() {
-        this.mapInstance.getMap().removeLayer(this.marker);
+    public removeMarker(): void {
+        this.getMarker().remove();
     }
 
     public getMarker(): LeafletMarker {

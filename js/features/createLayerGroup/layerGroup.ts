@@ -8,12 +8,16 @@ export class LayerGroup implements LayerGroupInterface, Addable, AddTo {
 
     }
 
-    public addTo(addable: Addable): void {
-        this.getLayerGroup().addTo(addable.getAddable());
-    }
-
     public getLayerGroup(): LeafletLayerGroup {
         return this.leafletLayer;
+    }
+
+    public removeLayerGroup(): void {
+        this.getLayerGroup().remove();
+    }
+
+    public addTo(addable: Addable): void {
+        this.getLayerGroup().addTo(addable.getAddable());
     }
 
     public getAddable(): LeafletLayerGroup {
