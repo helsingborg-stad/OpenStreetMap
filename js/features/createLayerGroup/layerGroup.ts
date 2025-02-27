@@ -3,7 +3,7 @@ import { LayerGroupInterface } from "./layerGroupInterface";
 import { Addable } from "../../addableInterface";
 import { AddTo } from "../../addToInterface";
 
-export class LayerGroup implements LayerGroupInterface, Addable, AddTo {
+export class LayerGroup implements LayerGroupInterface {
     constructor(private leafletLayer: LeafletLayerGroup) {
 
     }

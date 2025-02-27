@@ -2,10 +2,9 @@ import { MapInterface } from "../../mapInterface";
 import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup } from 'leaflet';
 import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
-import { AddTo } from "../../addToInterface";
 import { Addable } from "../../addableInterface";
 
-class Marker implements MarkerInterface, AddTo {
+class Marker implements MarkerInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
     constructor(private mapInstance: MapInterface, private marker: LeafletMarker) {

@@ -4,9 +4,8 @@ import SetupTiles from "./setupMap/setupTiles";
 import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
-import { Addable } from './addableInterface';
 
-class Map implements MapInterface, Addable {
+class Map implements MapInterface {
     private map: LeafletMap;
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
@@ -55,7 +54,7 @@ class Map implements MapInterface, Addable {
     }
 }
 
-export function createMap(partialConfig: PartialConfigOptions): MapInterface&Addable {
+export function createMap(partialConfig: PartialConfigOptions): MapInterface {
     const config = new Config(partialConfig).getConfig();
     return new Map(config);
 }

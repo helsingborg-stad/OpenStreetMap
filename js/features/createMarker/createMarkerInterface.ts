@@ -17,5 +17,5 @@ export type MarkerOptions = {
 }
 
 export interface CreateMarkerInterface {
-    create(markerOptions: MarkerOptions, tooltipOptions?: null|TooltipOptions): MarkerInterface&AddTo; 
+    create(markerOptions: MarkerOptions, tooltipOptions?: null|TooltipOptions): MarkerInterface; 
 }

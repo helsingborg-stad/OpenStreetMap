@@ -9,7 +9,7 @@ import { AddTo } from "../../addToInterface";
 export class CreateLayerGroup implements CreateLayerGroupInterface {
     constructor(private mapInstance: MapInterface) {}
 
-    public create(): LayerGroupInterface&Addable&AddTo {
+    public create(): LayerGroupInterface {
         const layer = L.layerGroup();
 
         return new LayerGroup(layer);

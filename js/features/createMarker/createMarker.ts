@@ -8,7 +8,7 @@ export class CreateMarker implements CreateMarkerInterface {
     constructor(private mapInstance: MapInterface) {
     }
 
-    public create(markerOptions: MarkerOptions, tooltipOptions: TooltipOptions|null = null): Marker&AddTo {
+    public create(markerOptions: MarkerOptions, tooltipOptions: TooltipOptions|null = null): Marker {
         const icon = L.divIcon({
             className: markerOptions.className ?? '',
             html: markerOptions.icon, 
