@@ -8,4 +8,5 @@ export interface MarkerInterface extends AddTo {
     removeMarker(): void;
     addListener(event: MapEvent, callback: MapEventCallback): void;
     getMarker(): LeafletMarker;
+    setIcon(html: string, className?: string): void;
 }

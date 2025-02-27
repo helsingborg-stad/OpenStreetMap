@@ -39,6 +39,13 @@ class Marker implements MarkerInterface {
         return this.marker;
     }
 
+    public setIcon(html: string, className: string = ''): void {
+        this.marker.setIcon(L.divIcon({
+            className: className,
+            html: html
+        }));
+    }
+
     private setupListeners(): void {
         ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
             this.marker.on(event, (e) => {
