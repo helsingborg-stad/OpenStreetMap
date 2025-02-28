@@ -18,6 +18,10 @@ export class ImageOverlay implements ImageOverlayInterface {
         this.getImageOverlay().setBounds(bounds);
     }
 
+    public removeImageOverlay(): void {
+        this.getImageOverlay().remove();
+    }
+
     private getImageOverlay() {
         return this.leafletOverlay;
     }
