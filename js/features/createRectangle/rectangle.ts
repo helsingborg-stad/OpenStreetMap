@@ -18,6 +18,10 @@ export class Rectangle implements RectangleInterface {
         this.getRectangle().addTo(addable.getAddable());
     }
 
+    public removeRectangle(): void {
+        this.getRectangle().remove();
+    }
+
     private getRectangle() {
         return this.leafletRectangle;
     }

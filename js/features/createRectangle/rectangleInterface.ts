@@ -3,4 +3,5 @@ import { LatLngBoundsObject } from "../../types";
 
 export interface RectangleInterface extends AddTo {
     setLatLngBounds(latLngBoundsObject: LatLngBoundsObject): void;
+    removeRectangle(): void;
 }
