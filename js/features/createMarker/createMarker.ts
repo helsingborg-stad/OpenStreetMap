@@ -5,7 +5,7 @@ import Marker from './marker';
 import { AddTo } from '../../addToInterface';
 
 export class CreateMarker implements CreateMarkerInterface {
-    constructor(private mapInstance: MapInterface) {
+    constructor() {
     }
 
     public create(markerOptions: MarkerOptions, tooltipOptions: TooltipOptions|null = null): Marker {
@@ -27,6 +27,6 @@ export class CreateMarker implements CreateMarkerInterface {
             });
         }
 
-        return new Marker(this.mapInstance, marker);
+        return new Marker(marker);
     }
 }

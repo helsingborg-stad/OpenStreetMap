@@ -7,7 +7,7 @@ import { Addable } from "../../addableInterface";
 class Marker implements MarkerInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
-    constructor(private mapInstance: MapInterface, private marker: LeafletMarker) {
+    constructor(private marker: LeafletMarker) {
         this.setupListeners();
     }
 

@@ -3,11 +3,9 @@ import L from 'leaflet';
 import { CreateLayerGroupInterface } from "./createLayerGroupInterface";
 import { LayerGroup } from "./layerGroup";
 import { LayerGroupInterface } from "./layerGroupInterface";
-import { Addable } from "../../addableInterface";
-import { AddTo } from "../../addToInterface";
 
 export class CreateLayerGroup implements CreateLayerGroupInterface {
-    constructor(private mapInstance: MapInterface) {}
+    constructor() {}
 
     public create(): LayerGroupInterface {
         const layer = L.layerGroup();
