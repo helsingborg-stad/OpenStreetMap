@@ -25,4 +25,9 @@ export type LatLngObject = {
     lng: number
 };
 
+export type LatLngBoundsObject = {
+    southWest: LatLngObject,
+    northEast: LatLngObject
+};
+
 export type Nullable<T> = T|null;
