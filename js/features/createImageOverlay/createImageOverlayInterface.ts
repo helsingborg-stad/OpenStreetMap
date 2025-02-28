@@ -8,5 +8,5 @@ export type ImageOverlayOptions =  {
 }
 
 export interface CreateImageOverlayInterface {
-    create(url: string, latLngBounds: LatLngBoundsObject, imageOverlayOptions: ImageOverlayOptions): ImageOverlayInterface;
+    create(url: string, latLngBounds: LatLngBoundsObject, imageOverlayOptions?: ImageOverlayOptions): ImageOverlayInterface;
 }
