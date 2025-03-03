@@ -31,6 +31,10 @@ class Map implements MapInterface {
         return this.getMap().getZoom();
     }
 
+    public getCenter(): LatLngObject {
+        return this.getMap().getCenter();
+    }
+
     public getMap(): LeafletMap {
         return this.map;
     }
