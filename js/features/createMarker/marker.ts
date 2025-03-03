@@ -1,4 +1,3 @@
-import { MapInterface } from "../../mapInterface";
 import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup } from 'leaflet';
 import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
