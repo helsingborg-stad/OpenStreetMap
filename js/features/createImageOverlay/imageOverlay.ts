@@ -10,12 +10,26 @@ export class ImageOverlay implements ImageOverlayInterface {
         this.getImageOverlay().addTo(addable.getAddable());
     }
 
-    public setLatLngBounds(latLngBounds: LatLngBoundsObject) {
+    public setPosition(latLngBounds: LatLngBoundsObject) {
         const southWest = L.latLng(latLngBounds.southWest.lat, latLngBounds.southWest.lng);
         const northEast = L.latLng(latLngBounds.northEast.lat, latLngBounds.northEast.lng);
         const bounds = L.latLngBounds(southWest, northEast);
 
         this.getImageOverlay().setBounds(bounds);
+    }
+
+    public getPosition(): LatLngBoundsObject {
+        const bounds = this.getImageOverlay().getBounds();
+        return {
+            southWest: {
+                lat: bounds.getSouthWest().lat,
+                lng: bounds.getSouthWest().lng,
+            },
+            northEast: {
+                lat: bounds.getNorthEast().lat,
+                lng: bounds.getNorthEast().lng,
+            }
+        };
     }
 
     public removeImageOverlay(): void {

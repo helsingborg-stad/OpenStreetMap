@@ -10,12 +10,26 @@ export class Rectangle implements RectangleInterface {
         this.setupListeners();
     }
 
-    public setLatLngBounds(latLngBoundsObject: LatLngBoundsObject): void {
+    public setPosition(latLngBoundsObject: LatLngBoundsObject): void {
         const southWest = L.latLng(latLngBoundsObject.southWest.lat, latLngBoundsObject.southWest.lng);
         const northEast = L.latLng(latLngBoundsObject.northEast.lat, latLngBoundsObject.northEast.lng);
         const bounds = L.latLngBounds(southWest, northEast);
 
         this.getRectangle().setBounds(bounds);
+    }
+
+    public getPosition(): LatLngBoundsObject {
+        const bounds = this.getRectangle().getBounds();
+        return {
+            southWest: {
+                lat: bounds.getSouthWest().lat,
+                lng: bounds.getSouthWest().lng,
+            },
+            northEast: {
+                lat: bounds.getNorthEast().lat,
+                lng: bounds.getNorthEast().lng,
+            }
+        };
     }
 
     public addTo(addable: Addable): void {
@@ -34,15 +48,18 @@ export class Rectangle implements RectangleInterface {
         this.getRectangle().remove();
     }
 
-    private getRectangle() {
+    private getRectangle(): LeafletRectangle {
         return this.leafletRectangle;
     }
 
     private setupListeners(): void {
-        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as MapEvent[]).forEach(event => {
+        (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as MapEvent[]).forEach(event => {
              this.getRectangle().on(event, (e) => {
                  this.listeners[event]?.forEach((callback) => {
-                     callback(e);
+                     callback({
+                        originalEvent: (e as any)?.originalEvent ?? null,
+                        latLng: (e as any).latlng ?? null
+                    });
                  });
              });
          });

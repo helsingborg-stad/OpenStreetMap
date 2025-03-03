@@ -49,7 +49,10 @@ class Marker implements MarkerInterface {
         ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as MapEvent[]).forEach(event => {
             this.marker.on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
-                    callback(e);
+                    callback({
+                        originalEvent: (e as any)?.originalEvent ?? null,
+                        latLng: (e as any).latlng ?? null
+                    });
                 });
             });
         });

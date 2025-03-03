@@ -1,3 +1,8 @@
+import { EventData } from "./eventListenerInterface";
+import { MarkerInterface } from "./features/createMarker/markerInterface";
+import { RectangleInterface } from "./features/createRectangle/rectangleInterface";
+import { MapInterface } from "./mapInterface";
+
 export type MapStyle = "dark"|"pale"|"default"|"color";
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 
@@ -18,7 +23,7 @@ export type PartialConfigOptions = { id: string } & Partial<Omit<ConfigOptions, 
 
 export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag";
 
-export type MapEventCallback = (event: any) => void;
+export type MapEventCallback = (event: EventData) => void;
 
 export type LatLngObject = {
     lat: number,

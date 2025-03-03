@@ -6,6 +6,9 @@ export { Config } from './setupMap/config/config';
 // Main
 export * from './mapInterface';
 export * from './types';
+export * from './eventListenerInterface';
+export * from './addableInterface';
+export * from './addToInterface';
 
 // Setup map
 export * from './setupMap/createMapInterface';
@@ -20,3 +23,4 @@ export * from './features/createLayerGroup/createLayerGroupInterface';
 export * from './features/createMarkerClusterGroup/createMarkerClusterGroupInterface';
 export * from './features/createImageOverlay/createImageOverlayInterface';
 export * from './features/createMarker/createMarkerInterface';
+export * from './features/createRectangle/createRectangleInterface';
