@@ -10,6 +10,7 @@ export type RectangleOptions = {
     fillColor?: string;
     fillOpacity?: number;
     className?: string;
+    interactive?: boolean;
 }
 
 export interface CreateRectangleInterface {
