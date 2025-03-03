@@ -39,7 +39,7 @@ export class Rectangle implements RectangleInterface {
     }
 
     private setupListeners(): void {
-        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
+        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as MapEvent[]).forEach(event => {
              this.getRectangle().on(event, (e) => {
                  this.listeners[event]?.forEach((callback) => {
                      callback(e);

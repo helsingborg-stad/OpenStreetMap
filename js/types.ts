@@ -16,7 +16,7 @@ export type ConfigOptions = {
 
 export type PartialConfigOptions = { id: string } & Partial<Omit<ConfigOptions, 'id'>>;
 
-export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick";
+export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag";
 
 export type MapEventCallback = (event: any) => void;
 
