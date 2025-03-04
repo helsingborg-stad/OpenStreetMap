@@ -1,5 +1,5 @@
 import { Addable } from "../../addableInterface";
-import { LatLngBoundsObject } from "../../types";
+import { LatLngBoundsObject, LatLngObject } from "../../types";
 import { ImageOverlayInterface } from "./imageOverlayInterface";
 import L, { LatLngBounds, ImageOverlay as LeafletImageOverlay } from "leaflet";
 
@@ -29,6 +29,15 @@ export class ImageOverlay implements ImageOverlayInterface {
                 lat: bounds.getNorthEast().lat,
                 lng: bounds.getNorthEast().lng,
             }
+        };
+    }
+
+    public getCenter(): LatLngObject {
+        const bounds = this.getImageOverlay().getBounds();
+        const center = bounds.getCenter();
+        return {
+            lat: center.lat,
+            lng: center.lng
         };
     }
 
