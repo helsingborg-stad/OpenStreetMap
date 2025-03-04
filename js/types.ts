@@ -19,8 +19,6 @@ export type ConfigOptions = {
     scrollWheelZoom?: boolean;
 }
 
-// export type PartialConfigOptions = { id: string } & Partial<Omit<ConfigOptions, 'id'>>;
-
 export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag" | "dragstart" | "dragend";
 
 export type MapEventCallback = (event: EventData) => void;
