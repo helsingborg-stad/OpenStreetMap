@@ -5,6 +5,7 @@ export type ImageOverlayOptions =  {
     opacity?: number;
     alt?: string;
     className?: string;
+    interactive?: boolean;
 }
 
 export interface CreateImageOverlayInterface {
