@@ -34,8 +34,11 @@ export class ImageOverlay implements ImageOverlayInterface {
 
     public getCenter(): LatLngObject {
         const bounds = this.getImageOverlay().getBounds();
-
-        return bounds.getCenter();
+        const center = bounds.getCenter();
+        return {
+            lat: center.lat,
+            lng: center.lng,
+        };
     }
 
     public removeImageOverlay(): void {
