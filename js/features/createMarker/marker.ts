@@ -3,7 +3,7 @@ import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
 import { Addable } from "../../addableInterface";
 
-class Marker implements MarkerInterface {
+export class Marker implements MarkerInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
     constructor(private marker: LeafletMarker) {
@@ -58,5 +58,3 @@ class Marker implements MarkerInterface {
         });
     }
 }
-
-export default Marker;

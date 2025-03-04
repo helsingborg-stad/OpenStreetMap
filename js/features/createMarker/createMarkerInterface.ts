@@ -1,4 +1,3 @@
-import { AddTo } from "../../addToInterface";
 import { LatLngObject } from "../../types";
 import { MarkerInterface } from "./markerInterface";
 
