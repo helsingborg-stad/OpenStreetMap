@@ -4,6 +4,7 @@ import SetupTiles from "./setupMap/setupTiles";
 import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
+import { LatLngBoundsExpression } from 'leaflet';
 
 class Map implements MapInterface {
     private map: LeafletMap;
@@ -48,17 +49,20 @@ class Map implements MapInterface {
     }
 
     private setupListeners(): void {
-       ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
+       (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
             this.getMap().on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
-                    callback(e);
+                    callback({
+                        originalEvent: (e as any)?.originalEvent ?? null,
+                        latLng: (e as any).latlng ?? null
+                    });
                 });
             });
         });
     }
 }
 
-export function createMap(partialConfig: PartialConfigOptions): MapInterface {
-    const config = new Config(partialConfig).getConfig();
+export function createMap(configOptions: ConfigOptions): MapInterface {
+    const config = new Config(configOptions).getConfig();
     return new Map(config);
 }
