@@ -51,7 +51,7 @@ class Marker implements MarkerInterface {
                 this.listeners[event]?.forEach((callback) => {
                     callback({
                         originalEvent: (e as any)?.originalEvent ?? null,
-                        latLng: (e as any).latlng ?? null
+                        latLng: (e as any).latlng ?? this.getPosition()
                     });
                 });
             });
