@@ -1,7 +1,7 @@
 import { Map as LeafletMap } from 'leaflet';
 import CreateMap from "./setupMap/createMap";
 import SetupTiles from "./setupMap/setupTiles";
-import { ConfigOptions, PartialConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
+import { ConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
 import { LatLngBoundsExpression } from 'leaflet';
@@ -13,6 +13,7 @@ class Map implements MapInterface {
     constructor(private options: ConfigOptions) {
         this.map = new CreateMap(this.options).create();
         new SetupTiles(this, this.options).set();
+
         this.setupListeners();
     }
 
