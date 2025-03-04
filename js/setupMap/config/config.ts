@@ -1,13 +1,13 @@
-import { PartialConfigOptions, ConfigOptions } from "../../types";
+import { ConfigOptions } from "../../types";
 import { ConfigInterface } from "./configInterface";
 
 export class Config implements ConfigInterface {
     private options: ConfigOptions;
-    constructor(options: PartialConfigOptions) {
+    constructor(options: ConfigOptions) {
         this.options = this.getOptions(options);
     }
 
-    private getOptions(options: PartialConfigOptions): ConfigOptions {
+    private getOptions(options: ConfigOptions): ConfigOptions {
         return {
             ...this.getDefaultOptions(),
             ...options
