@@ -5,6 +5,7 @@ import { ImageOverlayInterface } from "./imageOverlayInterface";
 import L from 'leaflet';
 
 export class CreateImageOverlay implements CreateImageOverlayInterface {
+    // TODO: Add URL and Positioning to imageOverlayOptions
     public create(
         url: string,
         latLngBounds: LatLngBoundsObject,
