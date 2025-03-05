@@ -1,7 +1,7 @@
 import { Addable } from "../../addableInterface";
 import { LatLngBoundsObject, LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { ImageOverlayInterface } from "./imageOverlayInterface";
-import L, { LatLngBounds, ImageOverlay as LeafletImageOverlay } from "leaflet";
+import L, { ImageOverlay as LeafletImageOverlay } from "leaflet";
 
 export class ImageOverlay implements ImageOverlayInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};

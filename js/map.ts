@@ -4,7 +4,6 @@ import SetupTiles from "./setupMap/setupTiles";
 import { ConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
 import { MapInterface } from './mapInterface';
 import { Config } from './setupMap/config/config';
-import { LatLngBoundsExpression } from 'leaflet';
 
 class Map implements MapInterface {
     private map: LeafletMap;
