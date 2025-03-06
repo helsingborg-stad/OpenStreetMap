@@ -1,18 +1,11 @@
 import { Map as LeafletMap } from 'leaflet';
-import CreateMap from "./setupMap/createMap";
-// import SetupTiles from "./setupMap/setupTiles";
-import { ConfigOptions, MapEvent, MapEventCallback, LatLngObject } from './types';
+import { MapEvent, MapEventCallback, LatLngObject } from '../types';
 import { MapInterface } from './mapInterface';
-import { Config } from './setupMap/config/config';
 
-class Map implements MapInterface {
-    private map: LeafletMap;
+export class Map implements MapInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};
 
-    constructor(private options: ConfigOptions) {
-        this.map = new CreateMap(this.options).create();
-        // new SetupTiles(this, this.options).set();
-
+    constructor(private leafletMap: LeafletMap) {
         this.setupListeners();
     }
 
@@ -44,12 +37,8 @@ class Map implements MapInterface {
         this.getMap().setView(latlng, zoom);
     }
 
-    public getMap(): LeafletMap {
-        return this.map;
-    }
-
-    public getOptions(): ConfigOptions {
-        return this.options;
+    private getMap(): LeafletMap {
+        return this.leafletMap;
     }
 
     public getAddable() {
@@ -68,9 +57,4 @@ class Map implements MapInterface {
             });
         });
     }
-}
-
-export function createMap(configOptions: ConfigOptions): MapInterface {
-    const config = new Config(configOptions).getConfig();
-    return new Map(config);
 }

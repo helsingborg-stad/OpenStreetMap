@@ -1,4 +1,4 @@
-import { MapInterface } from "../../mapInterface";
+import { MapInterface } from "../../createMap/mapInterface";
 import L from 'leaflet';
 import { CreateLayerGroupInterface } from "./createLayerGroupInterface";
 import { LayerGroup } from "./layerGroup";

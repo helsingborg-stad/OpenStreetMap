@@ -1,18 +1,15 @@
 /* Classes and Methods */
-export { createMap } from './map';
-export { Config } from './setupMap/config/config';
-
-/* Interfaces */
-// Main
-export * from './mapInterface';
+// Main interfaces
 export * from './types';
 export * from './eventListenerInterface';
 export * from './addableInterface';
 export * from './addToInterface';
 
 // Setup map
-export * from './setupMap/createMapInterface';
-export * from './setupMap/config/configInterface';
+export { CreateMap } from './createMap/createMap';
+export { Map } from './createMap/map';
+export * from './createMap/createMapInterface';
+export * from './createMap/mapInterface';
 
 // Features
 export { CreateTileLayer } from './features/createTileLayer/createTileLayer';
