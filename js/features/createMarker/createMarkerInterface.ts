@@ -9,13 +9,16 @@ export type TooltipOptions = {
     className?: string;
 }
 
-export type MarkerOptions = {
-    position: LatLngObject;
+export type IconOptions = {
     icon: HTMLElement|string;
     className?: string;
-    draggable?: boolean;
     iconSize?: [number, number];
     iconAnchor?: [number, number];
+}
+
+export interface MarkerOptions extends IconOptions {
+    position: LatLngObject;
+    draggable?: boolean;
 }
 
 export interface CreateMarkerInterface {
