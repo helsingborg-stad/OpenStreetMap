@@ -40,6 +40,10 @@ class Map implements MapInterface {
         return this.getMap().getCenter();
     }
 
+    public setView(latlng: LatLngObject, zoom: number) {
+        this.getMap().setView(latlng, zoom);
+    }
+
     public getMap(): LeafletMap {
         return this.map;
     }
