@@ -1,12 +1,12 @@
 import { AddTo } from "../../addToInterface";
 import { EventListenerInterface } from "../../eventListenerInterface";
-import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
-import { Marker as LeafletMarker} from 'leaflet';
+import { LatLngObject } from "../../types";
+import { IconOptions } from "./createMarkerInterface";
 
 export interface MarkerInterface extends AddTo, EventListenerInterface {
     setPosition(position: LatLngObject): void;
     getPosition(): LatLngObject;
     removeMarker(): void;
-    setIcon(html: string, className?: string): void;
+    setIcon(iconOptions: IconOptions): void;
     getElement(): HTMLElement|undefined;
 }

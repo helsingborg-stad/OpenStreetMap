@@ -1,7 +1,8 @@
-import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup } from 'leaflet';
+import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup, icon } from 'leaflet';
 import { LatLngObject, MapEvent, MapEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
 import { Addable } from "../../addableInterface";
+import { IconOptions } from './createMarkerInterface';
 
 export class Marker implements MarkerInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};
@@ -42,11 +43,8 @@ export class Marker implements MarkerInterface {
         return this.marker.getElement();
     }
 
-    public setIcon(html: string, className: string = ''): void {
-        this.marker.setIcon(L.divIcon({
-            className: className,
-            html: html
-        }));
+    public setIcon(iconOptions: IconOptions): void {
+        this.marker.setIcon(L.divIcon(iconOptions));
     }
 
     private setupListeners(): void {
