@@ -8,9 +8,18 @@ export class CreateTileLayer implements CreateTileLayerInterface {
     constructor(private mapInstance: MapInterface) {}
 
     public create(tileLayerOptions: TileLayerOptions): TileLayerInterface {
-        const tiles = new URL(tileLayerOptions.url) ?
-        {url: tileLayerOptions.url, attribution: tileLayerOptions.attribution ?? null} : 
-        this.getTileLayer(tileLayerOptions.url);
+        let tiles;
+
+        try {
+            new URL(tileLayerOptions.url);
+            
+            tiles = {
+                url: tileLayerOptions.url,
+                attribution: tileLayerOptions.attribution ?? ""
+            };
+        } catch {
+            tiles = this.getTileLayer(tileLayerOptions.url);
+        }
 
         const tileLayer = L.tileLayer(tiles.url, {
             maxZoom: tileLayerOptions.maxZoom ?? 19,
