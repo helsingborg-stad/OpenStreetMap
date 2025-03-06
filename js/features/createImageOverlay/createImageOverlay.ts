@@ -6,16 +6,16 @@ import L from 'leaflet';
 
 export class CreateImageOverlay implements CreateImageOverlayInterface {
     public create(
-        url: string,
-        latLngBounds: LatLngBoundsObject,
-        imageOverlayOptions: ImageOverlayOptions = {}
+        imageOverlayOptions: ImageOverlayOptions
     ): ImageOverlayInterface {
+        const url = imageOverlayOptions.url;
+        const latLngBounds: L.LatLngBoundsLiteral = [
+            [imageOverlayOptions.bounds.southWest.lat, imageOverlayOptions.bounds.southWest.lng],
+            [imageOverlayOptions.bounds.northEast.lat, imageOverlayOptions.bounds.northEast.lng]
+        ];
         const imageOverlay = L.imageOverlay(
             url, 
-            [
-                [latLngBounds.southWest.lat, latLngBounds.southWest.lng], 
-                [latLngBounds.northEast.lat, latLngBounds.northEast.lng]
-            ],
+            latLngBounds,
             imageOverlayOptions
         );
 

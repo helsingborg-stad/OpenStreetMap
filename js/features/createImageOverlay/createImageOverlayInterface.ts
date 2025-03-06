@@ -2,6 +2,8 @@ import { LatLngBoundsObject } from "../../types";
 import { ImageOverlayInterface } from "./imageOverlayInterface";
 
 export type ImageOverlayOptions =  {
+    url: string;
+    bounds: LatLngBoundsObject;
     opacity?: number;
     alt?: string;
     className?: string;
@@ -9,5 +11,5 @@ export type ImageOverlayOptions =  {
 }
 
 export interface CreateImageOverlayInterface {
-    create(url: string, latLngBounds: LatLngBoundsObject, imageOverlayOptions?: ImageOverlayOptions): ImageOverlayInterface;
+    create(imageOverlayOptions: ImageOverlayOptions): ImageOverlayInterface;
 }
