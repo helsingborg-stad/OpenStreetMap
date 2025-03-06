@@ -1,7 +1,4 @@
 import { EventData } from "./eventListenerInterface";
-import { MarkerInterface } from "./features/createMarker/markerInterface";
-import { RectangleInterface } from "./features/createRectangle/rectangleInterface";
-import { MapInterface } from "./mapInterface";
 
 export type MapStyle = "dark"|"pale"|"default"|"color";
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
