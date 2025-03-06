@@ -8,6 +8,7 @@ export interface MapInterface extends Addable, EventListenerInterface {
     getMap(): LeafletMap;
     flyTo(latlng: any, zoom?: number|null): void;
     getZoom(): number;
+    setZoom(zoom: number): void;
     getCenter(): LatLngObject;
     getOptions(): ConfigOptions;
 }
