@@ -6,6 +6,7 @@ export type TooltipOptions = {
     closeButton?: boolean;
     maxHeight?: number;
     maxWidth?: number;
+    className?: string;
 }
 
 export type MarkerOptions = {

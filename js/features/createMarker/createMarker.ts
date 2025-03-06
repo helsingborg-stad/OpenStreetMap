@@ -25,7 +25,8 @@ export class CreateMarker implements CreateMarkerInterface {
             marker.bindPopup(tooltipOptions.content, {
                 closeButton: tooltipOptions.closeButton ?? true,
                 maxHeight: tooltipOptions.maxHeight ?? 100,
-                maxWidth: tooltipOptions.maxWidth ?? 250
+                maxWidth: tooltipOptions.maxWidth ?? 250,
+                className: tooltipOptions.className ?? ''
             });
         }
 
