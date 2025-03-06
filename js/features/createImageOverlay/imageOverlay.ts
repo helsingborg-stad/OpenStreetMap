@@ -57,6 +57,10 @@ export class ImageOverlay implements ImageOverlayInterface {
         this.getImageOverlay().remove();
     }
 
+    public getElement(): HTMLElement|undefined {
+        return this.getImageOverlay().getElement();
+    }
+
     private getImageOverlay() {
         return this.leafletOverlay;
     }

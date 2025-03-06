@@ -7,4 +7,5 @@ export interface ImageOverlayInterface extends AddTo, EventListenerInterface {
     getPosition(): LatLngBoundsObject;
     getCenter(): LatLngObject;
     removeImageOverlay(): void;
+    getElement(): HTMLElement|undefined;
 }
