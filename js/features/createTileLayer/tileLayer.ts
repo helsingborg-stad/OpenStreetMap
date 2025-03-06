@@ -15,6 +15,15 @@ export class TileLayer implements TileLayerInterface {
         this.getAttribution().addTo(this.mapInstance.getMap());
     }
 
+    public removeTileLayer(): void {
+        this.getTileLayer().remove();
+        this.getAttribution().remove();
+    }
+
+    public setUrl(url: string): void {
+        this.getTileLayer().setUrl(url);
+    }
+
     private getAttribution(): L.Control.Attribution {
         return this.attribution;
     }
