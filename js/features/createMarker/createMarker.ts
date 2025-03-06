@@ -11,7 +11,9 @@ export class CreateMarker implements CreateMarkerInterface {
     public create(markerOptions: MarkerOptions, tooltipOptions: TooltipOptions|null = null): Marker {
         const icon = L.divIcon({
             className: markerOptions.className ?? '',
-            html: markerOptions.icon, 
+            html: markerOptions.icon,
+            iconSize: markerOptions.iconSize ?? [24, 24],
+            iconAnchor: markerOptions.iconAnchor ?? [24, 24]
         });
 
         const marker = L.marker(markerOptions.position, {
@@ -23,7 +25,7 @@ export class CreateMarker implements CreateMarkerInterface {
             marker.bindPopup(tooltipOptions.content, {
                 closeButton: tooltipOptions.closeButton ?? true,
                 maxHeight: tooltipOptions.maxHeight ?? 250,
-                maxWidth: tooltipOptions.maxWidth ?? 100,
+                maxWidth: tooltipOptions.maxWidth ?? 100
             });
         }
 

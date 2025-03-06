@@ -13,6 +13,8 @@ export type MarkerOptions = {
     icon: HTMLElement|string;
     className?: string;
     draggable?: boolean;
+    iconSize?: [number, number];
+    iconAnchor?: [number, number];
 }
 
 export interface CreateMarkerInterface {
