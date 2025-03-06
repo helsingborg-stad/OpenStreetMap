@@ -22,7 +22,7 @@ export class CreateTileLayer implements CreateTileLayerInterface {
         }
 
         const tileLayer = L.tileLayer(tiles.url, {
-            maxZoom: tileLayerOptions.maxZoom ?? 19,
+            maxZoom: tileLayerOptions.maxZoom ?? 18,
             minZoom: tileLayerOptions.minZoom ?? 0,
             tileSize: tileLayerOptions.tileSize ?? 256,
             opacity: tileLayerOptions.opacity ?? 1.0,
@@ -30,7 +30,7 @@ export class CreateTileLayer implements CreateTileLayerInterface {
         });
 
         const attribution = L.control.attribution({
-            position: tileLayerOptions.attributionPosition as ControlPosition,
+            position: tiles.attribution as ControlPosition,
         }).addAttribution(
             tiles.attribution ?? ""
         ).setPrefix(false);
