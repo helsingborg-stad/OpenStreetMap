@@ -15,6 +15,11 @@ export * from './setupMap/createMapInterface';
 export * from './setupMap/config/configInterface';
 
 // Features
+export { CreateTileLayer } from './features/createTileLayer/createTileLayer';
+export { TileLayer } from './features/createTileLayer/tileLayer';
+export * from './features/createTileLayer/createTileLayerInterface';
+export * from './features/createTileLayer/tileLayerInterface';
+
 export { CreateLayerGroup } from './features/createLayerGroup/createLayerGroup';
 export { LayerGroup } from './features/createLayerGroup/layerGroup';
 export * from './features/createLayerGroup/createLayerGroupInterface';

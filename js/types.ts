@@ -1,17 +1,12 @@
 import { EventData } from "./eventListenerInterface";
 
 export type MapStyle = "dark"|"pale"|"default"|"color";
-export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 
 export type ConfigOptions = {
     id: string;
-    mapStyle?: MapStyle;
     keyboard?: boolean;
-    attributionPosition?: AttributionPosition;
     center?: LatLngObject;
     zoom?: number;
-    maxZoom?: number;
-    minZoom?: number;
     zoomControl?: boolean;
     scrollWheelZoom?: boolean;
 }

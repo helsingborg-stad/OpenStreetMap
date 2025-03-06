@@ -17,13 +17,9 @@ export class Config implements ConfigInterface {
     private getDefaultOptions(): ConfigOptions {
         return {
             id: '',
-            mapStyle: 'default',
             keyboard: false,
-            attributionPosition: 'bottomleft',
             center: { lat: 59.32932, lng: 18.06858 },
             zoom: 16,
-            maxZoom: 19,
-            minZoom: 0,
             zoomControl: false,
             scrollWheelZoom: false
         }
