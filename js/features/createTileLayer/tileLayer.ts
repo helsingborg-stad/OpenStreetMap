@@ -1,4 +1,4 @@
-import L from 'leaflet';
+import { Map as LeafletMap } from 'leaflet';
 import { Addable } from "../../addableInterface";
 import { TileLayerInterface } from "./tileLayerInterface";
 import { MapInterface } from '../createMap/mapInterface';
@@ -12,7 +12,8 @@ export class TileLayer implements TileLayerInterface {
 
     public addTo(addable: Addable): void {
         this.getTileLayer().addTo(addable.getAddable());
-        this.getAttribution().addTo(this.mapInstance.getAddable() as L.Map);
+        console.log(this.mapInstance.getAddable());
+        this.getAttribution().addTo(this.mapInstance.getAddable() as LeafletMap);
     }
 
     public removeTileLayer(): void {
