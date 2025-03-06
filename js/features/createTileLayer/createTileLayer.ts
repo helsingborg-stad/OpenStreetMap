@@ -30,7 +30,7 @@ export class CreateTileLayer implements CreateTileLayerInterface {
         });
 
         const attribution = L.control.attribution({
-            position: tiles.attribution as ControlPosition,
+            position: tileLayerOptions.attributionPosition as ControlPosition,
         }).addAttribution(
             tiles.attribution ?? ""
         ).setPrefix(false);
