@@ -1,6 +1,6 @@
 import { Map as LeafletMap } from 'leaflet';
-import { MapEvent, MapEventCallback, LatLngObject } from '../types';
 import { MapInterface } from './mapInterface';
+import { LatLngObject, MapEvent, MapEventCallback } from '../../types';
 
 export class Map implements MapInterface {
     private listeners: { [key: string]: MapEventCallback[] } = {};

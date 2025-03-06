@@ -1,4 +1,4 @@
-import { LatLngObject } from '../types';
+import { LatLngObject } from '../../types';
 import { MapInterface } from './mapInterface';
 
 export type ConfigOptions = {

@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import { Addable } from "../../addableInterface";
 import { TileLayerInterface } from "./tileLayerInterface";
-import { MapInterface } from '../../createMap/mapInterface';
+import { MapInterface } from '../createMap/mapInterface';
 
 export class TileLayer implements TileLayerInterface {
     constructor(

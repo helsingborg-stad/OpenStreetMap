@@ -2,7 +2,7 @@ import L, { ControlPosition } from 'leaflet';
 import { CreateTileLayerInterface, TileLayerOptions, Tiles } from "./createTileLayerInterface";
 import { TileLayer } from "./tileLayer";
 import { TileLayerInterface } from "./tileLayerInterface";
-import { MapInterface } from '../../createMap/mapInterface';
+import { MapInterface } from '../createMap/mapInterface';
 
 export class CreateTileLayer implements CreateTileLayerInterface {
     constructor(private mapInstance: MapInterface) {}

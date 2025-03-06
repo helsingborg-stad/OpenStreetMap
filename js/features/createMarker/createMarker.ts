@@ -1,8 +1,6 @@
 import L, { Marker as LeafletMarker } from 'leaflet';
-import { MapInterface } from '../../createMap/mapInterface';
 import { CreateMarkerInterface, MarkerOptions, TooltipOptions } from './createMarkerInterface';
 import { Marker } from './marker';
-import { AddTo } from '../../addToInterface';
 
 export class CreateMarker implements CreateMarkerInterface {
     constructor() {

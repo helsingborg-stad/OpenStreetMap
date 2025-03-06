@@ -1,7 +1,6 @@
-import { LatLngObject } from '../types';
-import { Addable } from '../addableInterface';
-import { EventListenerInterface } from '../eventListenerInterface';
-
+import { Addable } from "../../addableInterface";
+import { EventListenerInterface } from "../../eventListenerInterface";
+import { LatLngObject } from "../../types";
 
 export interface MapInterface extends Addable, EventListenerInterface {
     flyTo(latlng: any, zoom?: number|null): void;

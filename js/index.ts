@@ -5,13 +5,12 @@ export * from './eventListenerInterface';
 export * from './addableInterface';
 export * from './addToInterface';
 
-// Setup map
-export { CreateMap } from './createMap/createMap';
-export { Map } from './createMap/map';
-export * from './createMap/createMapInterface';
-export * from './createMap/mapInterface';
-
 // Features
+export { CreateMap } from './features/createMap/createMap';
+export { Map } from './features/createMap/map';
+export * from './features/createMap/createMapInterface';
+export * from './features/createMap/mapInterface';
+
 export { CreateTileLayer } from './features/createTileLayer/createTileLayer';
 export { TileLayer } from './features/createTileLayer/tileLayer';
 export * from './features/createTileLayer/createTileLayerInterface';
