@@ -7,6 +7,6 @@ export interface MarkerInterface extends AddTo, EventListenerInterface {
     setPosition(position: LatLngObject): void;
     getPosition(): LatLngObject;
     removeMarker(): void;
-    getMarker(): LeafletMarker;
     setIcon(html: string, className?: string): void;
+    getElement(): HTMLElement|undefined;
 }

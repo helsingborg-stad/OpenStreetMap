@@ -34,8 +34,12 @@ export class Marker implements MarkerInterface {
         this.getMarker().remove();
     }
 
-    public getMarker(): LeafletMarker {
+    private getMarker(): LeafletMarker {
         return this.marker;
+    }
+
+    public getElement(): HTMLElement|undefined {
+        return this.marker.getElement();
     }
 
     public setIcon(html: string, className: string = ''): void {
