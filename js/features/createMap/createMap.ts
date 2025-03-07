@@ -15,7 +15,8 @@ export class CreateMap implements CreateMapInterface {
                 keyboard: this.options.keyboard ?? false,
                 center: this.options.center ?? { lat: 59.32932, lng: 18.06858 },
                 zoom: this.options.zoom ?? 16,
-                zoomControl: this.options.zoomControl ?? false
+                zoomControl: this.options.zoomControl ?? true,
+                attributionControl: false
             }
         );
 
