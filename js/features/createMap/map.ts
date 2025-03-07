@@ -41,7 +41,7 @@ export class Map implements MapInterface {
         return this.leafletMap;
     }
 
-    public getAddable() {
+    public getAddable(): LeafletMap {
         return this.getMap();
     }
 
