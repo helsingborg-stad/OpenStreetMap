@@ -5,7 +5,7 @@ import { TileLayerInterface } from "./tileLayerInterface";
 import { MapInterface } from '../createMap/mapInterface';
 
 export class CreateTileLayer implements CreateTileLayerInterface {
-    constructor(private mapInstance: MapInterface) {}
+    constructor() {}
 
     public create(tileLayerOptions: TileLayerOptions): TileLayerInterface {
 
