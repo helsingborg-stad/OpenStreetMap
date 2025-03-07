@@ -35,3 +35,8 @@ export { CreateImageOverlay } from './features/createImageOverlay/createImageOve
 export { ImageOverlay } from './features/createImageOverlay/imageOverlay';
 export * from './features/createImageOverlay/createImageOverlayInterface';
 export * from './features/createImageOverlay/imageOverlayInterface';
+
+export { CreateAttribution } from './features/createAttribution/createAttribution';
+export { Attribution } from './features/createAttribution/attribution';
+export * from './features/createAttribution/createAttributionInterface';
+export * from './features/createAttribution/attributionInterface';
