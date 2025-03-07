@@ -7,7 +7,6 @@ export class CreateTileLayer implements CreateTileLayerInterface {
     constructor() {}
 
     public create(tileLayerOptions: TileLayerOptions = {}): TileLayerInterface {
-
         const tileLayer = L.tileLayer(tileLayerOptions.url ?? "", {
             maxZoom: tileLayerOptions.maxZoom ?? 18,
             minZoom: tileLayerOptions.minZoom ?? 0,

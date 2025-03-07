@@ -6,14 +6,8 @@ import { AttributionInterface } from './attributionInterface';
 export class Attribution implements AttributionInterface {
     constructor(private leafletAttribution: L.Control.Attribution) {}
 
-    public addAttributionText(attributionText: string): AttributionInterface {
+    public addAttribution(attributionText: string): AttributionInterface {
         this.getAttribution().addAttribution(attributionText);
-
-        return this;
-    }
-
-    public removeAttributionText(attributionText: string): AttributionInterface {
-        this.getAttribution().removeAttribution(attributionText);
 
         return this;
     }
