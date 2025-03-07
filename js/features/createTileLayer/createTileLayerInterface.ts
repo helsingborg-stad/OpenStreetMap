@@ -3,7 +3,7 @@ import { TileLayerInterface } from "./tileLayerInterface";
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 
 export type TileLayerOptions = {
-    url: string,
+    url?: string,
     maxZoom?: number,
     minZoom?: number,
     tileSize?: number,
@@ -12,5 +12,5 @@ export type TileLayerOptions = {
 }
 
 export interface CreateTileLayerInterface {
-    create(tileLayerOptions: TileLayerOptions): TileLayerInterface; 
+    create(tileLayerOptions?: TileLayerOptions): TileLayerInterface; 
 }
