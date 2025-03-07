@@ -29,5 +29,5 @@
     "browser": {
         "child_process": false
     },
-    "version": "0.40.3"
+    "version": "0.40.4"
 }
