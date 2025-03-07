@@ -2,17 +2,10 @@ import { TileLayerInterface } from "./tileLayerInterface";
 
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 
-export type Tiles = {
-    url: string,
-    attribution: string
-}
-
 export type TileLayerOptions = {
     url: string,
-    attribution?: string,
     maxZoom?: number,
     minZoom?: number,
-    attributionPosition?: AttributionPosition,
     tileSize?: number,
     opacity?: number,
     className?: string

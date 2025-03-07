@@ -7,19 +7,23 @@ export class LayerGroup implements LayerGroupInterface {
 
     }
 
-    public getLayerGroup(): LeafletLayerGroup {
-        return this.leafletLayer;
-    }
-
-    public removeLayerGroup(): void {
+    public removeLayerGroup(): LayerGroupInterface {
         this.getLayerGroup().remove();
+
+        return this;
     }
 
-    public addTo(addable: Addable): void {
+    public addTo(addable: Addable): LayerGroupInterface {
         this.getLayerGroup().addTo(addable.getAddable());
+
+        return this;
     }
 
     public getAddable(): LeafletLayerGroup {
         return this.getLayerGroup();
+    }
+
+    private getLayerGroup(): LeafletLayerGroup {
+        return this.leafletLayer;
     }
 }

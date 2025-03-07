@@ -1,6 +1,6 @@
 import { AddTo } from "../../addToInterface";
 
 export interface TileLayerInterface extends AddTo {
-    setUrl(url: string): void;
-    removeTileLayer(): void;
+    setUrl(url: string): TileLayerInterface;
+    removeTileLayer(): TileLayerInterface;
 }

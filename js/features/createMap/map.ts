@@ -9,32 +9,40 @@ export class Map implements MapInterface {
         this.setupListeners();
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback) {
+    public addListener(event: MapEvent, callback: MapEventCallback): MapInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
 
         this.listeners[event].push(callback);
+
+        return this;
     }
 
-    public flyTo(latlng: LatLngObject, zoom: number|null = null) {
+    public flyTo(latlng: LatLngObject, zoom: number|null = null): MapInterface {
         this.getMap().flyTo(latlng, zoom ?? this.getZoom());
+
+        return this;
     }
 
     public getZoom() {
         return this.getMap().getZoom();
     }
 
-    public setZoom(zoom: number) {
+    public setZoom(zoom: number): MapInterface {
         this.getMap().setZoom(zoom);
+
+        return this;
     }
 
     public getCenter(): LatLngObject {
         return this.getMap().getCenter();
     }
 
-    public setView(latlng: LatLngObject, zoom: number) {
+    public setView(latlng: LatLngObject, zoom: number): MapInterface {
         this.getMap().setView(latlng, zoom);
+
+        return this;
     }
 
     private getMap(): LeafletMap {

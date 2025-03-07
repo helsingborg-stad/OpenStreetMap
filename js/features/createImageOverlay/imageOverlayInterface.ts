@@ -3,9 +3,9 @@ import { EventListenerInterface } from "../../eventListenerInterface";
 import { LatLngBoundsObject, LatLngObject } from "../../types";
 
 export interface ImageOverlayInterface extends AddTo, EventListenerInterface {
-    setPosition(latLngBounds: LatLngBoundsObject): void;
+    setPosition(latLngBounds: LatLngBoundsObject): ImageOverlayInterface;
     getPosition(): LatLngBoundsObject;
     getCenter(): LatLngObject;
-    removeImageOverlay(): void;
+    removeImageOverlay(): ImageOverlayInterface;
     getElement(): HTMLElement|undefined;
 }

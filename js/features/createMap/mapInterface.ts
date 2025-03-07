@@ -3,9 +3,9 @@ import { EventListenerInterface } from "../../eventListenerInterface";
 import { LatLngObject } from "../../types";
 
 export interface MapInterface extends Addable, EventListenerInterface {
-    flyTo(latlng: any, zoom?: number|null): void;
+    flyTo(latlng: any, zoom?: number|null): MapInterface;
     getZoom(): number;
-    setZoom(zoom: number): void;
-    setView(latlng: LatLngObject, zoom: number): void;
+    setZoom(zoom: number): MapInterface;
+    setView(latlng: LatLngObject, zoom: number): MapInterface;
     getCenter(): LatLngObject;
 }

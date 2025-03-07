@@ -10,12 +10,14 @@ export class Rectangle implements RectangleInterface {
         this.setupListeners();
     }
 
-    public setPosition(latLngBoundsObject: LatLngBoundsObject): void {
+    public setPosition(latLngBoundsObject: LatLngBoundsObject): RectangleInterface {
         const southWest = L.latLng(latLngBoundsObject.southWest.lat, latLngBoundsObject.southWest.lng);
         const northEast = L.latLng(latLngBoundsObject.northEast.lat, latLngBoundsObject.northEast.lng);
         const bounds = L.latLngBounds(southWest, northEast);
 
         this.getRectangle().setBounds(bounds);
+
+        return this;
     }
 
     public getPosition(): LatLngBoundsObject {
@@ -32,20 +34,26 @@ export class Rectangle implements RectangleInterface {
         };
     }
 
-    public addTo(addable: Addable): void {
+    public addTo(addable: Addable): RectangleInterface {
         this.getRectangle().addTo(addable.getAddable());
+
+        return this;
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback) {
+    public addListener(event: MapEvent, callback: MapEventCallback): RectangleInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
 
         this.listeners[event].push(callback);
+
+        return this;
     }
 
-    public removeRectangle(): void {
+    public removeRectangle(): RectangleInterface {
         this.getRectangle().remove();
+
+        return this;
     }
 
     private getRectangle(): LeafletRectangle {

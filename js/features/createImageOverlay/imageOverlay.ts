@@ -9,24 +9,30 @@ export class ImageOverlay implements ImageOverlayInterface {
         this.setupListeners();
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback) {
+    public addListener(event: MapEvent, callback: MapEventCallback): ImageOverlayInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
 
         this.listeners[event].push(callback);
+
+        return this;
     }
 
-    public addTo(addable: Addable): void {
+    public addTo(addable: Addable): ImageOverlayInterface {
         this.getImageOverlay().addTo(addable.getAddable());
+
+        return this;
     }
 
-    public setPosition(latLngBounds: LatLngBoundsObject) {
+    public setPosition(latLngBounds: LatLngBoundsObject): ImageOverlayInterface {
         const southWest = L.latLng(latLngBounds.southWest.lat, latLngBounds.southWest.lng);
         const northEast = L.latLng(latLngBounds.northEast.lat, latLngBounds.northEast.lng);
         const bounds = L.latLngBounds(southWest, northEast);
 
         this.getImageOverlay().setBounds(bounds);
+
+        return this;
     }
 
     public getPosition(): LatLngBoundsObject {
@@ -53,8 +59,10 @@ export class ImageOverlay implements ImageOverlayInterface {
         };
     }
 
-    public removeImageOverlay(): void {
+    public removeImageOverlay(): ImageOverlayInterface {
         this.getImageOverlay().remove();
+
+        return this;
     }
 
     public getElement(): HTMLElement|undefined {

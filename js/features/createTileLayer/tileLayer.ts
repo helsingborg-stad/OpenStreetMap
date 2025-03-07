@@ -1,32 +1,27 @@
-import { Map as LeafletMap } from 'leaflet';
 import { Addable } from "../../addableInterface";
 import { TileLayerInterface } from "./tileLayerInterface";
-import { MapInterface } from '../createMap/mapInterface';
 
 export class TileLayer implements TileLayerInterface {
     constructor(
-        private mapInstance: MapInterface,
         private tileLayer: L.TileLayer,
-        private attribution: L.Control.Attribution
     ) {}
 
-    public addTo(addable: Addable): void {
+    public addTo(addable: Addable): TileLayerInterface {
         this.getTileLayer().addTo(addable.getAddable());
-        console.log(this.mapInstance.getAddable());
-        this.getAttribution().addTo(this.mapInstance.getAddable() as LeafletMap);
+
+        return this;
     }
 
-    public removeTileLayer(): void {
+    public removeTileLayer(): TileLayerInterface {
         this.getTileLayer().remove();
-        this.getAttribution().remove();
+
+        return this;
     }
 
-    public setUrl(url: string): void {
+    public setUrl(url: string): TileLayerInterface {
         this.getTileLayer().setUrl(url);
-    }
 
-    private getAttribution(): L.Control.Attribution {
-        return this.attribution;
+        return this;
     }
 
     private getTileLayer(): L.TileLayer {
