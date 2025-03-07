@@ -6,4 +6,6 @@ export interface AttributionInterface extends AddTo {
     removeAttributionText(attribution: string): AttributionInterface;
     setPosition(position: AttributionPosition): AttributionInterface;
     removeAttribution(): AttributionInterface;
+    setPrefix(prefix: string): AttributionInterface;
+    removePrefix(): AttributionInterface;
 }
