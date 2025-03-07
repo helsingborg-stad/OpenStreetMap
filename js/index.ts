@@ -6,7 +6,8 @@ export * from './addableInterface';
 export * from './addToInterface';
 
 // Helpers
-export { getTiles } from './helper/tiles';
+export { TilesHelper } from './helper/TilesHelper';
+export * from './helper/TilesHelperInterface';
 
 // Features
 export { CreateMap } from './features/createMap/createMap';
