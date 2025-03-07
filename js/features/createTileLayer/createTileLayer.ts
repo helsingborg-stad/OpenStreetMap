@@ -1,13 +1,12 @@
-import L, { ControlPosition } from 'leaflet';
+import L from 'leaflet';
 import { CreateTileLayerInterface, TileLayerOptions } from "./createTileLayerInterface";
 import { TileLayer } from "./tileLayer";
 import { TileLayerInterface } from "./tileLayerInterface";
-import { MapInterface } from '../createMap/mapInterface';
 
 export class CreateTileLayer implements CreateTileLayerInterface {
     constructor() {}
 
-    public create(tileLayerOptions: TileLayerOptions): TileLayerInterface {
+    public create(tileLayerOptions: TileLayerOptions = {}): TileLayerInterface {
 
         const tileLayer = L.tileLayer(tileLayerOptions.url ?? "", {
             maxZoom: tileLayerOptions.maxZoom ?? 18,
