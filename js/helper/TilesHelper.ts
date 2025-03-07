@@ -1,7 +1,7 @@
 import { MapStyle, TilesHelperInterface, TilesObject } from "./TilesHelperInterface";
 
 export class TilesHelper implements TilesHelperInterface {
-    public getDefaultTiles(style: MapStyle): TilesObject {
+    public getDefaultTiles(style: string): TilesObject {
         switch (style) {
             case 'dark':
                 return {

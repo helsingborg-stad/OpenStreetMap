@@ -6,5 +6,5 @@ export type TilesObject = {
 }
 
 export interface TilesHelperInterface {
-    getDefaultTiles(style: MapStyle): TilesObject
+    getDefaultTiles(style: string): TilesObject
 }
