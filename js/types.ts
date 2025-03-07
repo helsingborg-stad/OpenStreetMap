@@ -16,4 +16,9 @@ export type LatLngBoundsObject = {
     northEast: LatLngObject
 };
 
+export type Tiles = {
+    url: string,
+    attribution: string
+}
+
 export type Nullable<T> = T|null;

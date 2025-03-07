@@ -5,6 +5,9 @@ export * from './eventListenerInterface';
 export * from './addableInterface';
 export * from './addToInterface';
 
+// Helpers
+export { getTiles } from './helper/tiles';
+
 // Features
 export { CreateMap } from './features/createMap/createMap';
 export { Map } from './features/createMap/map';
