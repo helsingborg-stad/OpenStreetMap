@@ -10,7 +10,7 @@ export type TooltipOptions = {
 }
 
 export type IconOptions = {
-    icon: HTMLElement|string;
+    html: HTMLElement|string;
     className?: string;
     iconSize?: [number, number];
     iconAnchor?: [number, number];

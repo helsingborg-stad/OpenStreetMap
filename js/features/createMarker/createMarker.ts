@@ -9,7 +9,7 @@ export class CreateMarker implements CreateMarkerInterface {
     public create(markerOptions: MarkerOptions, tooltipOptions: TooltipOptions|null = null): Marker {
         const icon = L.divIcon({
             className: markerOptions.className ?? '',
-            html: markerOptions.icon,
+            html: markerOptions.html,
             iconSize: markerOptions.iconSize ?? [24, 24],
             iconAnchor: markerOptions.iconAnchor ?? [24, 24]
         });
