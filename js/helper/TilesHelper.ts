@@ -1,4 +1,4 @@
-import { MapStyle, TilesHelperInterface, TilesObject } from "./TilesHelperInterface";
+import { TilesHelperInterface, TilesObject } from "./TilesHelperInterface";
 
 export class TilesHelper implements TilesHelperInterface {
     public getDefaultTiles(style: string): TilesObject {
