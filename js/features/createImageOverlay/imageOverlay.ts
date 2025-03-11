@@ -59,6 +59,12 @@ export class ImageOverlay implements ImageOverlayInterface {
         };
     }
 
+    public setOpacity(opacity: number): ImageOverlayInterface {
+        this.getImageOverlay().setOpacity(opacity);
+
+        return this;
+    }
+
     public removeImageOverlay(): ImageOverlayInterface {
         this.getImageOverlay().remove();
 
