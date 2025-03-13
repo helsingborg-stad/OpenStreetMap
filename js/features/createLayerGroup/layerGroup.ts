@@ -13,6 +13,8 @@ export class LayerGroup implements LayerGroupInterface {
         return this;
     }
 
+    // Need to type addable here since Leaflet is missing types for removeFrom()
+    // check issue: https://github.com/Leaflet/Leaflet/issues/9209
     public removeLayerGroupFrom(addable: Addable): LayerGroupInterface {
         this.getLayerGroup().removeFrom(addable.getAddable() as LeafletMap);
         
