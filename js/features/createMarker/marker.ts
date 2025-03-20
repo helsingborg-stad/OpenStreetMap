@@ -47,6 +47,10 @@ export class Marker implements MarkerInterface {
         this.marker.setIcon(L.divIcon(iconOptions));
     }
 
+    public isPopupOpen(): boolean {
+        return this.marker.isPopupOpen();
+    }
+
     private setupListeners(): void {
         ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart"] as MapEvent[]).forEach(event => {
             this.marker.on(event, (e) => {

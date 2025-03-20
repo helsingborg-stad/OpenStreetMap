@@ -9,4 +9,5 @@ export interface MarkerInterface extends AddTo, EventListenerInterface {
     removeMarker(): void;
     setIcon(iconOptions: IconOptions): void;
     getElement(): HTMLElement|undefined;
+    isPopupOpen(): boolean;
 }
