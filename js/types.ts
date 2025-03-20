@@ -1,6 +1,6 @@
 import { EventData } from "./eventListenerInterface";
 
-export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag" | "dragstart" | "dragend";
+export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag" | "dragstart" | "dragend" | "popupopen" | "popupclose";
 
 export type MapEventCallback = (event: EventData) => void;
 

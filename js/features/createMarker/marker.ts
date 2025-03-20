@@ -52,7 +52,7 @@ export class Marker implements MarkerInterface {
     }
 
     private setupListeners(): void {
-        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart"] as MapEvent[]).forEach(event => {
+        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart", "popupopen", "popupclose"] as MapEvent[]).forEach(event => {
             this.marker.on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
                     callback({
