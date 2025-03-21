@@ -7,6 +7,7 @@ export type TooltipOptions = {
     maxHeight?: number;
     maxWidth?: number;
     className?: string;
+    offset?: [number, number];
 }
 
 export type IconOptions = {

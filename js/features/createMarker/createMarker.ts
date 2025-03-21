@@ -24,7 +24,8 @@ export class CreateMarker implements CreateMarkerInterface {
                 closeButton: tooltipOptions.closeButton ?? true,
                 maxHeight: tooltipOptions.maxHeight ?? 100,
                 maxWidth: tooltipOptions.maxWidth ?? 250,
-                className: tooltipOptions.className ?? ''
+                className: tooltipOptions.className ?? '',
+                offset: tooltipOptions.offset ?? [0, 7]
             });
         }
 
