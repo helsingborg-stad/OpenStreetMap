@@ -8,4 +8,5 @@ export interface MapInterface extends Addable, EventListenerInterface {
     setZoom(zoom: number): MapInterface;
     setView(latlng: LatLngObject, zoom: number): MapInterface;
     getCenter(): LatLngObject;
+    invalidateSize(): MapInterface;
 }

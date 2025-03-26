@@ -53,6 +53,12 @@ export class Map implements MapInterface {
         return this.getMap();
     }
 
+    public invalidateSize(): MapInterface {
+        this.getMap().invalidateSize();
+
+        return this;
+    }
+
     private setupListeners(): void {
        (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
             this.getMap().on(event, (e) => {
