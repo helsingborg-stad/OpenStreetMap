@@ -44,3 +44,8 @@ export { CreateAttribution } from './features/createAttribution/createAttributio
 export { Attribution } from './features/createAttribution/attribution';
 export * from './features/createAttribution/createAttributionInterface';
 export * from './features/createAttribution/attributionInterface';
+
+export { CreateSearch } from './features/createSearch/createSearch';
+export { Search } from './features/createSearch/search';
+export * from './features/createSearch/createSearchInterface';
+export * from './features/createSearch/searchInterface';
