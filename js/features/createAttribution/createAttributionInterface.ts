@@ -1,7 +1,8 @@
+import { ControlPosition } from "../../types";
 import { AttributionInterface } from "./attributionInterface";
 
 export type AttributionOptions = {
-    position?: "topright" | "topleft" | "bottomright" | "bottomleft";
+    position?: ControlPosition;
     prefix?: boolean;
 }
 

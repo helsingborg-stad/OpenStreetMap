@@ -4,6 +4,8 @@ export type MapEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseov
 
 export type MapEventCallback = (event: EventData) => void;
 
+export type ControlPosition = "topright" | "topleft" | "bottomright" | "bottomleft";
+
 export type LatLngObject = {
     lat: number,
     lng: number
