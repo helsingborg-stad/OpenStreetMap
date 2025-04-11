@@ -6,4 +6,5 @@ export interface CreateSearchInterface {
 
 export type SearchOptions = {
     position?: "topright" | "topleft" | "bottomright" | "bottomleft";
+    className?: string;
 }

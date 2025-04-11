@@ -1,27 +1,44 @@
-import { SearchControl } from 'leaflet-geosearch';
-import { SearchInterface } from './searchInterface';
+import { SearchApiInterface, SearchInterface, SearchUiInterface } from './searchInterface';
 import { MapInterface } from '../createMap/mapInterface';
-import L, { Map as LeafletMap} from 'leaflet';
 import { AttributionPosition } from '../createTileLayer/createTileLayerInterface';
 
 export class Search implements SearchInterface {
+    public apiUrl: string = '';
+
     constructor(
-        private searchControl: L.Control
+        private apiInstance: SearchApiInterface,
+        private searchUi: SearchUiInterface
     ) {}
 
-    public addTo(map: MapInterface): SearchInterface {
-        this.getSearchControl().addTo(map.getAddable() as LeafletMap);
-
+    public setApiUrl(url: string): this {
+        this.apiInstance.setApiUrl(url);
         return this;
     }
 
-    public setPosition(position: AttributionPosition): SearchInterface {
-        this.getSearchControl().setPosition(position);
+    public getApiUrl(): string {
+        return this.apiUrl;
+    }
 
+    public search(searchString: string): this {
         return this;
     }
 
-    private getSearchControl(): L.Control {
-        return this.searchControl;
+    public addTo(map: MapInterface): this {
+        this.searchUi.addTo(map);
+        return this;
+    }
+
+    public setPosition(position: AttributionPosition): this {
+        this.searchUi.setPosition(position);
+        return this;
+    }
+
+    public removeSearch(): this {
+        this.searchUi.removeSearch();
+        return this;
+    }
+
+    public getContainer(): HTMLElement|undefined {
+        return this.searchUi.getContainer();
     }
 }

@@ -1,7 +1,9 @@
+import { SearchApi } from './search/api';
 import { CreateSearchInterface, SearchOptions } from './createSearchInterface';
 import { Search } from './search';
 import { SearchInterface } from './searchInterface';
 import L, { Map as LeafletMap, map} from 'leaflet';
+import { SearchUi } from './search/searchUi';
 
 export class CreateSearch implements CreateSearchInterface {
     constructor() {}
@@ -10,20 +12,39 @@ export class CreateSearch implements CreateSearchInterface {
         
         const SearchControl = L.Control.extend({
             onAdd: function(map: LeafletMap) {
-              const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-              container.style.backgroundColor = 'white';
-              container.style.padding = '5px';
+              const container = L.DomUtil.create('div', `openstreetmap__search ${searchOptions.className || ''}`);
           
-              const input = L.DomUtil.create('input', '', container);
-              input.type = 'text';
-              input.placeholder = 'Search location...';
-          
+              container.innerHTML = `
+              <input 
+                type="text" 
+                placeholder="Search location..." 
+                style="width: 150px; padding: 4px;"
+              />
+            `;
+
               return container;
             },
             onRemove(map: LeafletMap) {
             }
           });
 
-        return new Search(new SearchControl(searchOptions));
+        return new Search(
+          new SearchApi(),
+          new SearchUi(new SearchControl(searchOptions))
+        );
+
+        // public create(): SearchInterface {
+        //   const settings: any = {
+        //       notFoundMessage: 'Sorry, that address could not be found.',
+        //       provider: new OpenStreetMapProvider({
+        //           params: {
+        //               'accept-language': 'sv',
+        //               countrycodes: 'se',
+        //               addressdetails: 1,
+        //           },
+        //       }),
+        //       style: 'button',
+        //   };
+        //   const searchControl = new (GeoSearchControl as any)(settings);
     }
 }
