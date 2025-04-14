@@ -11,12 +11,10 @@ export type SearchLocationListItem = {
 
 export interface SearchInterface extends SearchUiInterface, SearchApiInterface {
     addTo(map: MapInterface): this;
-    setPosition(position: AttributionPosition): this;
     removeSearch(): this;
 }
 
 export interface SearchUiInterface extends AddTo {
-    setPosition(position: AttributionPosition): this;
     removeSearch(): this;
     getContainer(): HTMLElement|undefined;
     getInput(): HTMLInputElement|undefined;

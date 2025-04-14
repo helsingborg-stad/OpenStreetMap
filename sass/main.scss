@@ -2,6 +2,54 @@
 .openstreetmap {
     overflow: hidden;
 
+    /* Search */
+    .openstreetmap__search {
+        width: 25rem;
+        max-width: calc(100% - 7.5rem);
+        position: relative;
+        z-index: 1000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        background-color: white;
+        border-radius: 4px;
+        padding: 0 1rem;
+
+        input {
+            width: 100%;
+            border: none;
+            height: 2rem;
+
+            &:focus-visible {
+                outline: unset;
+                outline-offset: unset;
+                box-shadow: none;
+            }
+        }
+
+        ul {
+            max-height: 16rem;
+            overflow-y: auto;
+            width: 100%;
+            list-style-type: none;
+            padding: .5rem 0;
+            margin: 0;
+            border-top: 1px solid #c6c6c6;
+            
+            li {
+                padding-left: 2px;
+                cursor: pointer;
+            }
+            
+            &:empty {
+                padding: 0;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+
 	/* Changes to leaflet css */
 	.leaflet-popup-content {
 		width: 100%;

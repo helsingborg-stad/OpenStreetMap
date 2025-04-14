@@ -1,11 +1,10 @@
 import { SearchInterface } from "./searchInterface";
 
 export interface CreateSearchInterface {
-    create(): SearchInterface;
+    create(searchOptions: SearchOptions): SearchInterface;
 }
 
 export type SearchOptions = {
-    position?: "topright" | "topleft" | "bottomright" | "bottomleft";
     className?: string;
     apiUrl?: string;
     apiSearchParam?: string;

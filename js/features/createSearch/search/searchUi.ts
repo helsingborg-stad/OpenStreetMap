@@ -1,46 +1,71 @@
 import L, { Map as LeafletMap} from 'leaflet';
 import { MapInterface } from '../../createMap/mapInterface';
-import { AttributionPosition } from '../../createTileLayer/createTileLayerInterface';
 import { SearchApiInterface, SearchLocationListItem, SearchUiInterface } from '../searchInterface';
+import { SearchOptions } from '../createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
-    constructor(private searchControl: L.Control, private searchApi: SearchApiInterface) {}
+    private searchContainer: HTMLElement|undefined = undefined;
+    constructor(private searchOptions: SearchOptions, private searchApi: SearchApiInterface) {}
 
     private listenForInput(): void {
+        console.log("change")
+        console.log(this.getInput())
         this.getInput()?.addEventListener('change', (e: Event) => {
             this.searchApi.search((e.target as HTMLInputElement).value);
         });
     }
 
     public setSearchListItems(items: SearchLocationListItem[]): this {
+        const listContainer = this.getList();
+        if (!listContainer) {
+            throw new Error('List container not found');
+        }
+
+        items.forEach(item => {
+            listContainer.appendChild(this.createListItem(item));
+        });
+
         return this;
+    }
+
+    private createListItem(item: SearchLocationListItem): HTMLLIElement {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${item.title}</span>`;
+
+        return li;
     }
 
     public addTo(map: MapInterface): this {
-        this.getSearchControl().addTo(map.getAddable() as LeafletMap);
-        this.listenForInput();
-        return this;
-    }
+        const container = document.createElement('div');
+        container.className = `openstreetmap__search ${this.searchOptions.className || ''}`;
 
-    public setPosition(position: AttributionPosition): this {
-        this.getSearchControl().setPosition(position);
+        container.innerHTML = `
+            <input type="text" placeholder="Search location..." />
+            <ul></ul>
+        `;
+
+        const controlContainer = (map.getAddable() as LeafletMap).getContainer()?.querySelector('.leaflet-control-container');
+        controlContainer?.appendChild(container);
+        this.searchContainer = container;
+        this.listenForInput();
+
         return this;
     }
 
     public removeSearch(): this {
-        this.getSearchControl().remove();
+        this.getContainer()?.remove();
         return this;
     }
 
-    public getContainer(): HTMLElement|undefined {
-        return this.getSearchControl().getContainer();
+    private getList(): HTMLElement|undefined {
+        return this.getContainer()?.querySelector('ul') as HTMLElement;
     }
 
     public getInput(): HTMLInputElement|undefined {
-        return this.getSearchControl().getContainer()?.querySelector('input') as HTMLInputElement;
+        return this.getContainer()?.querySelector('input') as HTMLInputElement;
     }
 
-    private getSearchControl(): L.Control {
-        return this.searchControl;
+    public getContainer(): HTMLElement|undefined {
+        return this.searchContainer;
     }
 }

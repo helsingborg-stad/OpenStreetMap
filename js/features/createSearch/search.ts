@@ -40,11 +40,6 @@ export class Search implements SearchInterface {
         return this;
     }
 
-    public setPosition(position: AttributionPosition): this {
-        this.searchUi.setPosition(position);
-        return this;
-    }
-
     public removeSearch(): this {
         this.searchUi.removeSearch();
         return this;
