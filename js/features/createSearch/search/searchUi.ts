@@ -80,6 +80,8 @@ export class SearchUi implements SearchUiInterface {
         const controlContainer = (map.getAddable() as LeafletMap).getContainer()?.querySelector('.leaflet-control-container');
         controlContainer?.appendChild(container);
         this.searchContainer = container;
+        this.stopDblClickZoom();
+
         this.listenForInput();
 
         return this;
@@ -91,10 +93,6 @@ export class SearchUi implements SearchUiInterface {
         return this;
     }
 
-    private getList(): HTMLElement|undefined {
-        return this.getContainer()?.querySelector('ul') as HTMLElement;
-    }
-
     public getInput(): HTMLInputElement|undefined {
         return this.getContainer()?.querySelector('input') as HTMLInputElement;
     }
@@ -102,4 +100,15 @@ export class SearchUi implements SearchUiInterface {
     public getContainer(): HTMLElement|undefined {
         return this.searchContainer;
     }
+    
+    private stopDblClickZoom(): void {
+        this.getContainer()?.addEventListener('dblclick', (e: Event) => {
+            e.stopPropagation();
+        });
+    }
+
+    private getList(): HTMLElement|undefined {
+        return this.getContainer()?.querySelector('ul') as HTMLElement;
+    }
+
 }
