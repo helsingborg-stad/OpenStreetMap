@@ -11,28 +11,32 @@ export class Marker implements MarkerInterface {
         this.setupListeners();
     }
 
-    public addTo(addable: Addable): void {
+    public addTo(addable: Addable): MarkerInterface {
         this.getMarker().addTo(addable.getAddable());
+        return this;
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback) {
+    public addListener(event: MapEvent, callback: MapEventCallback): MarkerInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
 
         this.listeners[event].push(callback);
+        return this;
     }
 
-    public setPosition(position: LatLngObject) {
+    public setPosition(position: LatLngObject): MarkerInterface {
         this.marker.setLatLng(position);
+        return this;
     }
 
     public getPosition(): LatLngObject {
         return this.marker.getLatLng();
     }
 
-    public removeMarker(): void {
+    public removeMarker(): MarkerInterface {
         this.getMarker().remove();
+        return this;
     }
 
     private getMarker(): LeafletMarker {
@@ -43,15 +47,16 @@ export class Marker implements MarkerInterface {
         return this.marker.getElement();
     }
 
-    public setIcon(iconOptions: IconOptions): void {
+    public setIcon(iconOptions: IconOptions): MarkerInterface {
         this.marker.setIcon(L.divIcon(iconOptions));
+        return this;
     }
 
     public isPopupOpen(): boolean {
         return this.marker.isPopupOpen();
     }
 
-    private setupListeners(): void {
+    private setupListeners(): MarkerInterface {
         ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart", "popupopen", "popupclose"] as MapEvent[]).forEach(event => {
             this.marker.on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
@@ -62,5 +67,7 @@ export class Marker implements MarkerInterface {
                 });
             });
         });
+
+        return this;
     }
 }

@@ -4,10 +4,10 @@ import { LatLngObject } from "../../types";
 import { IconOptions } from "./createMarkerInterface";
 
 export interface MarkerInterface extends AddTo, EventListenerInterface {
-    setPosition(position: LatLngObject): void;
+    setPosition(position: LatLngObject): MarkerInterface;
     getPosition(): LatLngObject;
-    removeMarker(): void;
-    setIcon(iconOptions: IconOptions): void;
+    removeMarker(): MarkerInterface;
+    setIcon(iconOptions: IconOptions): MarkerInterface;
     getElement(): HTMLElement|undefined;
     isPopupOpen(): boolean;
 }
