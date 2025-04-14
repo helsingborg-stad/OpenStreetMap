@@ -6,6 +6,7 @@ import { SearchOptions } from '../createSearchInterface';
 export class SearchUi implements SearchUiInterface {
     private searchContainer: HTMLElement|undefined = undefined;
     private itemClickListeners: ListItemClickListener[] = [];
+    private currentValue: string = '';
 
     constructor(private searchOptions: SearchOptions, private searchApi: SearchApiInterface) {}
 
@@ -16,6 +17,7 @@ export class SearchUi implements SearchUiInterface {
 
         this.getInput()?.addEventListener('input', (e: Event) => {
             const input = e.target as HTMLInputElement;
+            this.currentValue = input.value;
             debouncedSearch(input.value);
         });
     }
@@ -40,9 +42,12 @@ export class SearchUi implements SearchUiInterface {
             throw new Error('List container not found');
         }
 
-        listContainer.innerHTML = '';
+        if (items.length < 1 && this.currentValue.length > 0) {
+            listContainer.innerHTML = `<li>${this.searchOptions.noResultsText ?? 'No items found.'}</li>`;
+        } else {
+            listContainer.innerHTML = '';
+        }
 
-        // TODO: If empty
         items.forEach(item => {
             const listItem = this.createListItem(item);
 
