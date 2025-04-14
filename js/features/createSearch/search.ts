@@ -1,4 +1,4 @@
-import { SearchApiInterface, SearchEventCallback, SearchInterface, SearchLocationListItem, SearchUiInterface } from './searchInterface';
+import { ListItemClickListener, SearchApiInterface, SearchEventCallback, SearchInterface, SearchLocationListItem, SearchUiInterface } from './searchInterface';
 import { MapInterface } from '../createMap/mapInterface';
 
 export class Search implements SearchInterface {
@@ -11,6 +11,11 @@ export class Search implements SearchInterface {
 
     public addSearchListener(searchEventCallback: SearchEventCallback): this {
         this.apiInstance.addSearchListener(searchEventCallback);
+        return this;
+    }
+
+    public addListItemListener(searchEventCallback: ListItemClickListener): this {
+        this.searchUi.addListItemListener(searchEventCallback);
         return this;
     }
 
