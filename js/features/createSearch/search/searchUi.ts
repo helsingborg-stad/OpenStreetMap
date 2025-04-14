@@ -19,7 +19,10 @@ export class SearchUi implements SearchUiInterface {
             throw new Error('List container not found');
         }
 
+        listContainer.innerHTML = '';
+
         items.forEach(item => {
+            const listItem = this.createListItem(item);
             listContainer.appendChild(this.createListItem(item));
         });
 
