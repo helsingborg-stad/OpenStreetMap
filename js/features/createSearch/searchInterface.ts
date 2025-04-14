@@ -2,7 +2,6 @@ import { AddTo } from "../../addToInterface";
 import { SearchCallback } from "../../types";
 import { MapInterface } from "../createMap/mapInterface";
 
-export type SearchEventCallback = (event: any) => void;
 
 export type SearchLocationListItem = {
     lat: number;
@@ -10,6 +9,8 @@ export type SearchLocationListItem = {
     title: string;
 }
 
+export type SearchEventCallback = (event: any) => void;
+export type ListItemClickListener = (event: SearchLocationListItem) => void;
 export interface SearchInterface extends SearchUiInterface, SearchApiInterface {
 }
 
@@ -19,6 +20,7 @@ export interface SearchUiInterface extends AddTo {
     getInput(): HTMLInputElement|undefined;
     addTo(map: MapInterface): this;
     setSearchListItems(items: SearchLocationListItem[]): this;
+    addListItemListener(searchEventCallback: ListItemClickListener): this;
 }
 
 export interface SearchApiInterface {

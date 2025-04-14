@@ -1,10 +1,11 @@
 import L, { Map as LeafletMap} from 'leaflet';
 import { MapInterface } from '../../createMap/mapInterface';
-import { SearchApiInterface, SearchLocationListItem, SearchUiInterface } from '../searchInterface';
+import { ListItemClickListener, SearchApiInterface, SearchLocationListItem, SearchUiInterface } from '../searchInterface';
 import { SearchOptions } from '../createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
     private searchContainer: HTMLElement|undefined = undefined;
+    private itemClickListeners: ListItemClickListener[] = [];
 
     constructor(private searchOptions: SearchOptions, private searchApi: SearchApiInterface) {}
 
@@ -28,6 +29,11 @@ export class SearchUi implements SearchUiInterface {
         };
     }
 
+    public addListItemListener(searchEventCallback: ListItemClickListener): this {
+        this.itemClickListeners.push(searchEventCallback);
+        return this;
+    }
+
     public setSearchListItems(items: SearchLocationListItem[]): this {
         const listContainer = this.getList();
         if (!listContainer) {
@@ -36,13 +42,12 @@ export class SearchUi implements SearchUiInterface {
 
         listContainer.innerHTML = '';
 
+        // TODO: If empty
         items.forEach(item => {
             const listItem = this.createListItem(item);
 
             listItem.addEventListener('click', () => {
-                // this.listeners['click']?.forEach(callback => {
-                //     callback(item);
-                // });
+                this.itemClickListeners.forEach(listener => listener(item));
             });
 
             listContainer.appendChild(listItem);
@@ -77,7 +82,6 @@ export class SearchUi implements SearchUiInterface {
 
     public removeSearch(): this {
         this.getContainer()?.remove();
-        this.currentMap = null;
         this.searchContainer = undefined;
         return this;
     }
