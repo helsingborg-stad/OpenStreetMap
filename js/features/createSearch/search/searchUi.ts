@@ -8,8 +8,6 @@ export class SearchUi implements SearchUiInterface {
     constructor(private searchOptions: SearchOptions, private searchApi: SearchApiInterface) {}
 
     private listenForInput(): void {
-        console.log("change")
-        console.log(this.getInput())
         this.getInput()?.addEventListener('change', (e: Event) => {
             this.searchApi.search((e.target as HTMLInputElement).value);
         });
