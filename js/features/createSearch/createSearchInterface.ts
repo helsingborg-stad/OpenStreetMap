@@ -8,4 +8,5 @@ export type SearchOptions = {
     className?: string;
     apiUrl?: string;
     apiSearchParam?: string;
+    noResultsText?: string;
 }
