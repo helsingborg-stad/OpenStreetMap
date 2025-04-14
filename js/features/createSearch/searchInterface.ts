@@ -17,7 +17,6 @@ export interface SearchInterface extends SearchUiInterface, SearchApiInterface {
 export interface SearchUiInterface extends AddTo {
     removeSearch(): this;
     getContainer(): HTMLElement|undefined;
-    getInput(): HTMLInputElement|undefined;
     addTo(map: MapInterface): this;
     setSearchListItems(items: SearchLocationListItem[]): this;
     addListItemListener(searchEventCallback: ListItemClickListener): this;

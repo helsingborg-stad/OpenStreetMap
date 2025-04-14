@@ -52,8 +52,4 @@ export class Search implements SearchInterface {
     public getContainer(): HTMLElement|undefined {
         return this.searchUi.getContainer();
     }
-
-    public getInput(): HTMLInputElement|undefined {
-        return this.searchUi.getInput();
-    }
 }

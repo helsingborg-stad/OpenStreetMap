@@ -5,6 +5,8 @@ import { SearchOptions } from '../createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
     private searchContainer: HTMLElement|undefined = undefined;
+    private list: HTMLElement|undefined = undefined;
+    private input: HTMLInputElement|undefined = undefined;
     private itemClickListeners: ListItemClickListener[] = [];
     private currentValue: string = '';
 
@@ -53,6 +55,14 @@ export class SearchUi implements SearchUiInterface {
 
             listItem.addEventListener('click', () => {
                 this.itemClickListeners.forEach(listener => listener(item));
+                if (this.input) {
+                    this.input.value = item.title;
+                    this.input.focus();
+                }
+
+                if (this.list) {
+                    this.list.innerHTML = '';
+                }
             });
 
             listContainer.appendChild(listItem);
@@ -90,25 +100,34 @@ export class SearchUi implements SearchUiInterface {
     public removeSearch(): this {
         this.getContainer()?.remove();
         this.searchContainer = undefined;
+        this.list = undefined;
+        this.input = undefined;
         return this;
     }
 
-    public getInput(): HTMLInputElement|undefined {
-        return this.getContainer()?.querySelector('input') as HTMLInputElement;
-    }
-
-    public getContainer(): HTMLElement|undefined {
-        return this.searchContainer;
-    }
-    
     private stopDblClickZoom(): void {
         this.getContainer()?.addEventListener('dblclick', (e: Event) => {
             e.stopPropagation();
         });
     }
 
-    private getList(): HTMLElement|undefined {
-        return this.getContainer()?.querySelector('ul') as HTMLElement;
+    public getContainer(): HTMLElement|undefined {
+        return this.searchContainer;
     }
+    
+    private getInput(): HTMLInputElement|undefined {
+        if (!this.input) {
+            this.input = this.getContainer()?.querySelector('input') ?? undefined;
+        }
 
+        return this.input;
+    }
+    
+    private getList(): HTMLElement|undefined {
+        if (!this.list) {
+            this.list = this.getContainer()?.querySelector('ul') ?? undefined;
+        }
+
+        return this.list;
+    }
 }
