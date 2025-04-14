@@ -1,7 +1,8 @@
 import { AddTo } from "../../addToInterface";
 import { SearchCallback } from "../../types";
 import { MapInterface } from "../createMap/mapInterface";
-import { AttributionPosition } from "../createTileLayer/createTileLayerInterface";
+
+export type SearchEventCallback = (event: any) => void;
 
 export type SearchLocationListItem = {
     lat: number;
@@ -10,8 +11,6 @@ export type SearchLocationListItem = {
 }
 
 export interface SearchInterface extends SearchUiInterface, SearchApiInterface {
-    addTo(map: MapInterface): this;
-    removeSearch(): this;
 }
 
 export interface SearchUiInterface extends AddTo {
@@ -26,5 +25,5 @@ export interface SearchApiInterface {
     setApiUrl(url: string): this;
     setSearchParam(searchParam: string): this;
     search(question: string): this;
-    addSearchListener(callback: SearchCallback): this;
+    addSearchListener(searchEventCallback: SearchCallback): this;
 }

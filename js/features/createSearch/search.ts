@@ -1,6 +1,5 @@
-import { SearchApiInterface, SearchInterface, SearchLocationListItem, SearchUiInterface } from './searchInterface';
+import { SearchApiInterface, SearchEventCallback, SearchInterface, SearchLocationListItem, SearchUiInterface } from './searchInterface';
 import { MapInterface } from '../createMap/mapInterface';
-import { AttributionPosition } from '../createTileLayer/createTileLayerInterface';
 
 export class Search implements SearchInterface {
     public apiUrl: string = '';
@@ -9,6 +8,11 @@ export class Search implements SearchInterface {
         private apiInstance: SearchApiInterface,
         private searchUi: SearchUiInterface
     ) {}
+
+    public addSearchListener(searchEventCallback: SearchEventCallback): this {
+        this.apiInstance.addSearchListener(searchEventCallback);
+        return this;
+    }
 
     public setApiUrl(url: string): this {
         this.apiInstance.setApiUrl(url);
@@ -22,11 +26,6 @@ export class Search implements SearchInterface {
 
     public search(question: string): this {
         this.apiInstance.search(question);
-        return this;
-    }
-
-    public addSearchListener(callback: (data: any) => void): this {
-        this.apiInstance.addSearchListener(callback);
         return this;
     }
 

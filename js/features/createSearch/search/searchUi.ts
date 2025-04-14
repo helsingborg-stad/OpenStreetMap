@@ -5,12 +5,27 @@ import { SearchOptions } from '../createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
     private searchContainer: HTMLElement|undefined = undefined;
+
     constructor(private searchOptions: SearchOptions, private searchApi: SearchApiInterface) {}
 
     private listenForInput(): void {
-        this.getInput()?.addEventListener('change', (e: Event) => {
-            this.searchApi.search((e.target as HTMLInputElement).value);
+        const debouncedSearch = this.debounce((value: string) => {
+            this.searchApi.search(value);
+        }, 500);
+
+        this.getInput()?.addEventListener('input', (e: Event) => {
+            const input = e.target as HTMLInputElement;
+            debouncedSearch(input.value);
         });
+    }
+
+    private debounce(func: (...args: any[]) => void, wait: number): (...args: any[]) => void {
+        let timeout: number | undefined;
+    
+        return (...args: any[]) => {
+            clearTimeout(timeout);
+            timeout = window.setTimeout(() => func(...args), wait);
+        };
     }
 
     public setSearchListItems(items: SearchLocationListItem[]): this {
@@ -23,7 +38,14 @@ export class SearchUi implements SearchUiInterface {
 
         items.forEach(item => {
             const listItem = this.createListItem(item);
-            listContainer.appendChild(this.createListItem(item));
+
+            listItem.addEventListener('click', () => {
+                // this.listeners['click']?.forEach(callback => {
+                //     callback(item);
+                // });
+            });
+
+            listContainer.appendChild(listItem);
         });
 
         return this;
@@ -55,6 +77,8 @@ export class SearchUi implements SearchUiInterface {
 
     public removeSearch(): this {
         this.getContainer()?.remove();
+        this.currentMap = null;
+        this.searchContainer = undefined;
         return this;
     }
 
