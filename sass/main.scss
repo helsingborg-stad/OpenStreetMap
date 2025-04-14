@@ -16,6 +16,10 @@
         border-radius: 4px;
         padding: 0 1rem;
 
+        @media (max-width: 768px) {
+            padding: 0 .5rem;
+        }
+
         input {
             width: 100%;
             border: none;
