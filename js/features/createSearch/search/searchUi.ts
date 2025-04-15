@@ -60,9 +60,7 @@ export class SearchUi implements SearchUiInterface {
                     this.input.focus();
                 }
 
-                if (this.list) {
-                    this.list.innerHTML = '';
-                }
+                this.getList()!.innerHTML = '';
             });
 
             listContainer.appendChild(listItem);
