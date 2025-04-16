@@ -3,6 +3,7 @@ import { SearchCallback } from "../../types";
 import { MapInterface } from "../createMap/mapInterface";
 
 
+
 export type SearchLocationListItem = {
     lat: number;
     lng: number;
@@ -18,13 +19,13 @@ export interface SearchUiInterface extends AddTo {
     removeSearch(): this;
     getContainer(): HTMLElement|undefined;
     addTo(map: MapInterface): this;
-    setSearchListItems(items: SearchLocationListItem[]): this;
-    addListItemListener(searchEventCallback: ListItemClickListener): this;
+    setSearchListItems(items: any): this;
+    addListItemListener(listItemClickListener: ListItemClickListener): this;
 }
 
 export interface SearchApiInterface {
     setApiUrl(url: string): this;
     setSearchParam(searchParam: string): this;
     search(question: string): Promise<any>;
-    addSearchListener(searchEventCallback: SearchCallback): this;
+    addSearchResponseCallback(searchEventCallback: SearchCallback): this;
 }
