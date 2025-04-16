@@ -25,6 +25,6 @@ export interface SearchUiInterface extends AddTo {
 export interface SearchApiInterface {
     setApiUrl(url: string): this;
     setSearchParam(searchParam: string): this;
-    search(question: string): this;
+    search(question: string): Promise<any>;
     addSearchListener(searchEventCallback: SearchCallback): this;
 }

@@ -29,9 +29,8 @@ export class Search implements SearchInterface {
         return this;
     }
 
-    public search(question: string): this {
-        this.apiInstance.search(question);
-        return this;
+    public search(question: string): Promise<any> {
+        return this.apiInstance.search(question);
     }
 
     public setSearchParam(searchParam: string): this {

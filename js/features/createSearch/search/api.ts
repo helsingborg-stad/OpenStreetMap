@@ -1,5 +1,5 @@
 import { SearchCallback } from "../../../types";
-import { SearchApiInterface, SearchUiInterface } from "../searchInterface";
+import { SearchApiInterface } from "../searchInterface";
 
 export class SearchApi implements SearchApiInterface {
     private apiUrl: URL|null = null;
@@ -7,37 +7,46 @@ export class SearchApi implements SearchApiInterface {
     private searchListeners: SearchCallback[] = [];
     private searchResults: any = {};
 
-    public search(question: string): any {
+    public search(question: string): Promise<any> {
         if (this.apiUrl === null || this.searchParam === null) {
             throw new Error("API URL and search parameter must be set before searching.");
         }
 
         // Check if the question is already cached
         if (this.searchResults[question]) {
-            this.searchListeners.forEach(callback => callback(this.searchResults[question]));
-            return this;
+            return Promise.resolve(this.searchResults[question]);
         }
 
         // If the question is empty, return empty results
         if (question.length < 1) {
             this.searchListeners.forEach(callback => callback([]));
-            return this;
+            return Promise.resolve([]);
         }
 
         const url = new URL(this.apiUrl);
         url.searchParams.set(this.searchParam, question);
 
-        fetch(url.toString())
+        return fetch(url.toString())
             .then(response => response.json())
             .then(data => {
-                this.searchResults[question] = data;
-                this.searchListeners.forEach(callback => callback(data));
-            })
-            .catch(error => console.error('Error:', error));
+                //  Run all callback to structure the data
+                const modifiedData = this.searchListeners.reduce(
+                    (currentData, callback) => callback(currentData),
+                    data
+                );
 
-        return this;
+                // Cache question results
+                this.searchResults[question] = modifiedData;
+
+                return modifiedData;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                return null;
+            });
     }
 
+    // Adding listeners gives you a chance to change the response value
     public addSearchListener(callback: SearchCallback): this {
         this.searchListeners.push(callback);
         return this;

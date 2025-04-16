@@ -14,7 +14,10 @@ export class SearchUi implements SearchUiInterface {
 
     private listenForInput(): void {
         const debouncedSearch = this.debounce((value: string) => {
-            this.searchApi.search(value);
+            this.searchApi.search(value)
+            .then((data: any) => {
+                console.log(data);
+            });
         }, 500);
 
         this.getInput()?.addEventListener('input', (e: Event) => {
@@ -22,15 +25,6 @@ export class SearchUi implements SearchUiInterface {
             this.currentValue = input.value;
             debouncedSearch(input.value);
         });
-    }
-
-    private debounce(func: (...args: any[]) => void, wait: number): (...args: any[]) => void {
-        let timeout: number | undefined;
-    
-        return (...args: any[]) => {
-            clearTimeout(timeout);
-            timeout = window.setTimeout(() => func(...args), wait);
-        };
     }
 
     public addListItemListener(searchEventCallback: ListItemClickListener): this {
@@ -127,5 +121,14 @@ export class SearchUi implements SearchUiInterface {
         }
 
         return this.list;
+    }
+
+    private debounce(func: (...args: any[]) => void, wait: number): (...args: any[]) => void {
+        let timeout: number | undefined;
+    
+        return (...args: any[]) => {
+            clearTimeout(timeout);
+            timeout = window.setTimeout(() => func(...args), wait);
+        };
     }
 }
