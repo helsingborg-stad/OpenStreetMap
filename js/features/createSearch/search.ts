@@ -1,4 +1,4 @@
-import { ListItemClickListener, SearchApiInterface, SearchEventCallback, SearchInterface, SearchLocationListItem, SearchUiInterface } from './searchInterface';
+import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchCallback, SearchInterface, SearchUiInterface } from './searchInterface';
 import { MapInterface } from '../createMap/mapInterface';
 
 export class Search implements SearchInterface {
@@ -9,8 +9,8 @@ export class Search implements SearchInterface {
         private searchUi: SearchUiInterface
     ) {}
 
-    public addSearchListener(searchEventCallback: SearchEventCallback): this {
-        this.apiInstance.addSearchListener(searchEventCallback);
+    public addSearchResponseCallback(searchEventCallback: SearchCallback): this {
+        this.apiInstance.addSearchResponseCallback(searchEventCallback);
         return this;
     }
 
@@ -24,12 +24,12 @@ export class Search implements SearchInterface {
         return this;
     }
 
-    public setSearchListItems(items: SearchLocationListItem[]): this {
+    public setSearchListItems(items: any): this {
         this.searchUi.setSearchListItems(items);
         return this;
     }
 
-    public search(question: string): Promise<any> {
+    public search(question: string): Promise<PlaceObject[]> {
         return this.apiInstance.search(question);
     }
 

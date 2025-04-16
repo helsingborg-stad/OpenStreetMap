@@ -1,6 +1,6 @@
 import L, { Map as LeafletMap} from 'leaflet';
 import { MapInterface } from '../../createMap/mapInterface';
-import { ListItemClickListener, SearchApiInterface, SearchLocationListItem, SearchUiInterface } from '../searchInterface';
+import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchUiInterface } from '../searchInterface';
 import { SearchOptions } from '../createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
@@ -15,8 +15,8 @@ export class SearchUi implements SearchUiInterface {
     private listenForInput(): void {
         const debouncedSearch = this.debounce((value: string) => {
             this.searchApi.search(value)
-            .then((data: any) => {
-                console.log(data);
+            .then((data: PlaceObject[]) => {
+                this.setSearchListItems(data);
             });
         }, 500);
 
@@ -32,7 +32,7 @@ export class SearchUi implements SearchUiInterface {
         return this;
     }
 
-    public setSearchListItems(items: SearchLocationListItem[]): this {
+    public setSearchListItems(items: PlaceObject[]): this {
         const listContainer = this.getList();
         if (!listContainer) {
             throw new Error('List container not found');
@@ -44,13 +44,13 @@ export class SearchUi implements SearchUiInterface {
             listContainer.innerHTML = '';
         }
 
-        items.forEach(item => {
+        items.forEach((item: PlaceObject) => {
             const listItem = this.createListItem(item);
 
             listItem.addEventListener('click', () => {
                 this.itemClickListeners.forEach(listener => listener(item));
                 if (this.input) {
-                    this.input.value = item.title;
+                    this.input.value = item.address as string;
                     this.input.focus();
                 }
 
@@ -63,9 +63,10 @@ export class SearchUi implements SearchUiInterface {
         return this;
     }
 
-    private createListItem(item: SearchLocationListItem): HTMLLIElement {
+    private createListItem(item: PlaceObject): HTMLLIElement {
+        console.log(item);
         const li = document.createElement('li');
-        li.innerHTML = `<span>${item.title}</span>`;
+        li.innerHTML = `<span>${item.address}</span>`;
 
         return li;
     }

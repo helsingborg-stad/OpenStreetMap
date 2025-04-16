@@ -1,5 +1,4 @@
-import { SearchCallback } from "../../../types";
-import { SearchApiInterface } from "../searchInterface";
+import { PlaceObject, SearchApiInterface, SearchCallback } from "../searchInterface";
 
 export class SearchApi implements SearchApiInterface {
     private apiUrl: URL|null = null;
@@ -7,7 +6,7 @@ export class SearchApi implements SearchApiInterface {
     private searchListeners: SearchCallback[] = [];
     private searchResults: any = {};
 
-    public search(question: string): Promise<any> {
+    public search(question: string): Promise<PlaceObject[]> {
         if (this.apiUrl === null || this.searchParam === null) {
             throw new Error("API URL and search parameter must be set before searching.");
         }
@@ -42,12 +41,12 @@ export class SearchApi implements SearchApiInterface {
             })
             .catch(error => {
                 console.error('Error:', error);
-                return null;
+                return Promise.resolve([]);
             });
     }
 
     // Adding listeners gives you a chance to change the response value
-    public addSearchListener(callback: SearchCallback): this {
+    public addSearchResponseCallback(callback: SearchCallback): this {
         this.searchListeners.push(callback);
         return this;
     }
