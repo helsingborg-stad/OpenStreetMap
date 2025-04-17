@@ -24,9 +24,10 @@
             position: relative;
         }
 
-        .openstreetmap__search-icon {
+        .openstreetmap__search-reset {
             cursor: pointer;
             position: absolute;
+            color: #7c7c7c;
             top: 50%;
             right: 0;
             transform: translate(.5rem, -50%);
@@ -42,7 +43,7 @@
         .openstreetmap__search-spinner {
             width: 12px;
             height: 12px;
-            border: 2px solid #000;
+            border: 2px solid #7c7c7c;
             border-bottom-color: transparent;
             border-radius: 50%;
             display: none;

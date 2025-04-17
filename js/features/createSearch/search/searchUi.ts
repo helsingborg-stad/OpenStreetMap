@@ -84,7 +84,7 @@ export class SearchUi implements SearchUiInterface {
             <div class="openstreetmap__search-container">
                 <input type="text" placeholder="${this.searchOptions.placeholder ?? 'Search location...'}" />
                 <span class="openstreetmap__search-spinner" data-js-search-spinner="true"></span>
-                <span class="openstreetmap__search-icon" data-js-search-reset="true" role="button" aria-label="${this.searchOptions.resetButtonLabel ?? 'Reset search'}">&#10005;</span>
+                <span class="openstreetmap__search-reset" data-js-search-reset="true" role="button" aria-label="${this.searchOptions.resetButtonLabel ?? 'Reset search'}">&#10005;</span>
             </div>
             <ul></ul>
         `;
