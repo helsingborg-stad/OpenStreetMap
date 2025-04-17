@@ -9,4 +9,6 @@ export type SearchOptions = {
     apiUrl?: string;
     apiSearchParam?: string;
     noResultsText?: string;
+    resetButtonLabel?: string;
+    placeholder?: string;
 }

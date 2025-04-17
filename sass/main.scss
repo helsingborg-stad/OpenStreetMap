@@ -20,10 +20,53 @@
             padding: 0 .5rem;
         }
 
+        .openstreetmap__search-container {
+            position: relative;
+        }
+
+        .openstreetmap__search-icon {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(.5rem, -50%);
+            padding: .5rem;
+            transition: font-size 0.2s ease-in-out;
+            display: none;
+
+            &:hover {
+                font-size: 110%;
+            }
+        }
+
+        .openstreetmap__search-spinner {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #000;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: none;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            position: absolute;
+            right: 1rem;
+            top: calc(50% - 6px);
+        }
+        
+            @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } 
+
         input {
             width: 100%;
             border: none;
             height: 2rem;
+            padding-right: 2rem;
 
             &:focus-visible {
                 outline: unset;
