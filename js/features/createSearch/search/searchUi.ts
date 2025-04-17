@@ -48,7 +48,7 @@ export class SearchUi implements SearchUiInterface {
         } else {
             listContainer.innerHTML = '';
         }
-        console.log(items);
+
         items.forEach((item: PlaceObject) => {
             const listItem = this.createListItem(item);
 
@@ -118,7 +118,8 @@ export class SearchUi implements SearchUiInterface {
         this.getResetButton()?.addEventListener('click', (e: Event) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Reset search');
+            this.getResetButton()!.style.display = 'none';
+
             if (this.getList()) {
                 this.getList()!.innerHTML = '';
             }
