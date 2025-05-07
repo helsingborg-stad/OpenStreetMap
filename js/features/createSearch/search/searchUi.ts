@@ -69,10 +69,50 @@ export class SearchUi implements SearchUiInterface {
     }
 
     private createListItem(item: PlaceObject): HTMLLIElement {
+        const title = this.getTitleFromPlaceSchema(item);
         const li = document.createElement('li');
-        li.innerHTML = `<span>${item.address}</span>`;
+        li.innerHTML = `<span>${title}</span>`;
 
         return li;
+    }
+
+    private getTitleFromPlaceSchema(item: PlaceObject): string {
+        if (!item.address) {
+            return item.name as string ?? '';
+        }
+
+        if (typeof item.address !== 'object') {
+            return item.address;
+        }
+
+        const address = [];
+
+        if (item.name) {
+            address.push(item.name);
+        }
+
+        if ('streetAddress' in item.address) {
+            address.push(item.address.streetAddress);
+        }
+
+        if ('addressLocality' in item.address) {
+            address.push(item.address.addressLocality);
+        }
+
+        if ('addressRegion' in item.address) {
+            address.push(item.address.addressRegion);
+        }
+
+        if ('postalCode' in item.address) {
+            address.push(item.address.postalCode);
+        }
+
+
+        if ('addressCountry' in item.address) {
+            address.push(item.address.addressCountry);
+        }
+
+        return address.length > 0 ? address.join(', ') : item.name as string ?? '';
     }
 
     public addTo(map: MapInterface): this {
