@@ -43,7 +43,7 @@ export class SearchUi implements SearchUiInterface {
             throw new Error('List container not found');
         }
 
-        if (items.length < 1 && this.currentValue.length > 0) {
+        if ((items.length < 1 && this.currentValue.length > 0)) {
             listContainer.innerHTML = `<li>${this.searchOptions.noResultsText ?? 'No items found.'}</li>`;
         } else {
             listContainer.innerHTML = '';
@@ -69,7 +69,6 @@ export class SearchUi implements SearchUiInterface {
     }
 
     private createListItem(item: PlaceObject): HTMLLIElement {
-        console.log(item);
         const li = document.createElement('li');
         li.innerHTML = `<span>${item.address}</span>`;
 
