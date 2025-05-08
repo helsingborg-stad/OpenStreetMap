@@ -22,6 +22,7 @@ export interface SearchUiInterface extends AddTo {
     getResetButton(): HTMLElement|undefined;
     showOrHideSpinner(show: boolean): this;
     showOrHideReset(): this;
+    setValue(value: string): this;
 }
 
 export interface SearchApiInterface {

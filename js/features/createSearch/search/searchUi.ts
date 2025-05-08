@@ -201,6 +201,15 @@ export class SearchUi implements SearchUiInterface {
         return this;
     }
 
+    public setValue(value: string): this {
+        this.currentValue = value;
+        if (this.getInput()) {
+            this.getInput()!.value = value;
+        }
+
+        return this;
+    }
+
     public getContainer(): HTMLElement|undefined {
         return this.searchContainer;
     }

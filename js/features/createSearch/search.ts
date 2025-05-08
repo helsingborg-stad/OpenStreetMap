@@ -61,6 +61,11 @@ export class Search implements SearchInterface {
         return this;
     }
 
+    public setValue(value: string): this {
+        this.searchUi.setValue(value);
+        return this;
+    }
+
     public showOrHideSpinner(show: boolean): this {
         this.searchUi.showOrHideSpinner(show);
         return this;
