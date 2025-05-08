@@ -37,13 +37,17 @@ export class SearchUi implements SearchUiInterface {
         return this;
     }
 
-    public setSearchListItems(items: PlaceObject[]): this {
+    public setSearchListItems(items: PlaceObject[]|null): this {
         const listContainer = this.getList();
         if (!listContainer) {
             throw new Error('List container not found');
         }
 
-        if ((items.length < 1 && this.currentValue.length > 0)) {
+        if (items === null) {
+            listContainer.innerHTML = '';
+            return this;
+        }
+        else if ((items.length < 1 && this.currentValue.length > 0)) {
             listContainer.innerHTML = `<li>${this.searchOptions.noResultsText ?? 'No items found.'}</li>`;
         } else {
             listContainer.innerHTML = '';

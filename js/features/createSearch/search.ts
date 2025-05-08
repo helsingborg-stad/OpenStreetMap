@@ -24,7 +24,7 @@ export class Search implements SearchInterface {
         return this;
     }
 
-    public setSearchListItems(items: any): this {
+    public setSearchListItems(items: PlaceObject[]|null): this {
         this.searchUi.setSearchListItems(items);
         return this;
     }

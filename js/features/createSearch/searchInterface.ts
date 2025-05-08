@@ -17,7 +17,7 @@ export interface SearchUiInterface extends AddTo {
     getTitleFromPlaceSchema(place: PlaceObject): string;
     addTo(map: MapInterface): this;
     getInput(): HTMLInputElement|undefined;
-    setSearchListItems(items: any): this;
+    setSearchListItems(items: PlaceObject[]|null): this;
     addListItemListener(listItemClickListener: ListItemClickListener): this;
 }
 
