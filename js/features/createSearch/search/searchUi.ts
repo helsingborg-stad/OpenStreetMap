@@ -173,9 +173,9 @@ export class SearchUi implements SearchUiInterface {
         });
     }
 
-    private showOrHideSpinner(isSearching: boolean): void {
+    public showOrHideSpinner(isSearching: boolean): this {
         if (!this.getSpinner()) {
-            return;
+            return this;
         }
 
         if (isSearching && this.currentValue.length > 0) {
@@ -183,11 +183,13 @@ export class SearchUi implements SearchUiInterface {
         } else {
             this.getSpinner()!.style.display = 'none';
         }
+
+        return this;
     }
 
-    private showOrHideReset(): void {
+    public showOrHideReset(): this {
         if (!this.getResetButton()) {
-            return;
+            return this;
         }
 
         if (this.currentValue.length > 0) {
@@ -195,6 +197,8 @@ export class SearchUi implements SearchUiInterface {
         } else {
             this.getResetButton()!.style.display = 'none';
         }
+
+        return this;
     }
 
     public getContainer(): HTMLElement|undefined {
@@ -209,7 +213,7 @@ export class SearchUi implements SearchUiInterface {
         return this.spinner;
     }
 
-    private getResetButton(): HTMLElement|undefined {
+    public getResetButton(): HTMLElement|undefined {
         if (!this.resetButton) {
             this.resetButton = this.getContainer()?.querySelector('[data-js-search-reset]') ?? undefined;
         }

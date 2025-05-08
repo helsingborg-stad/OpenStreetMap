@@ -52,6 +52,20 @@ export class Search implements SearchInterface {
         return this.searchUi.getInput();
     }
 
+    public getResetButton(): HTMLElement|undefined {
+        return this.searchUi.getResetButton();
+    }
+
+    public showOrHideReset(): this {
+        this.searchUi.showOrHideReset();
+        return this;
+    }
+
+    public showOrHideSpinner(show: boolean): this {
+        this.searchUi.showOrHideSpinner(show);
+        return this;
+    }
+
     public getTitleFromPlaceSchema(place: PlaceObject): string {
         return this.searchUi.getTitleFromPlaceSchema(place);
     }

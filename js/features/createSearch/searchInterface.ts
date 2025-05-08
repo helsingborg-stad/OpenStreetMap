@@ -19,6 +19,9 @@ export interface SearchUiInterface extends AddTo {
     getInput(): HTMLInputElement|undefined;
     setSearchListItems(items: PlaceObject[]|null): this;
     addListItemListener(listItemClickListener: ListItemClickListener): this;
+    getResetButton(): HTMLElement|undefined;
+    showOrHideSpinner(show: boolean): this;
+    showOrHideReset(): this;
 }
 
 export interface SearchApiInterface {
