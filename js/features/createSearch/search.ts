@@ -48,6 +48,10 @@ export class Search implements SearchInterface {
         return this;
     }
 
+    public getInput(): HTMLInputElement|undefined {
+        return this.searchUi.getInput();
+    }
+
     public getContainer(): HTMLElement|undefined {
         return this.searchUi.getContainer();
     }

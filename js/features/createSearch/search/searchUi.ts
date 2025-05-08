@@ -55,7 +55,7 @@ export class SearchUi implements SearchUiInterface {
             listItem.addEventListener('click', () => {
                 this.itemClickListeners.forEach(listener => listener(item));
                 if (this.input) {
-                    this.input.value = item.address as string;
+                    this.input.value = this.getTitleFromPlaceSchema(item);
                     this.input.focus();
                 }
 
@@ -77,12 +77,17 @@ export class SearchUi implements SearchUiInterface {
     }
 
     private getTitleFromPlaceSchema(item: PlaceObject): string {
+        console.log(item);
         if (!item.address) {
             return item.name as string ?? '';
         }
 
         if (typeof item.address !== 'object') {
             return item.address;
+        }
+
+        if ('name' in item.address) {
+            return item.address.name as string;
         }
 
         const address = [];
@@ -106,7 +111,6 @@ export class SearchUi implements SearchUiInterface {
         if ('postalCode' in item.address) {
             address.push(item.address.postalCode);
         }
-
 
         if ('addressCountry' in item.address) {
             address.push(item.address.addressCountry);
@@ -214,7 +218,7 @@ export class SearchUi implements SearchUiInterface {
         return this.resetButton;
     }
     
-    private getInput(): HTMLInputElement|undefined {
+    public getInput(): HTMLInputElement|undefined {
         if (!this.input) {
             this.input = this.getContainer()?.querySelector('input') ?? undefined;
         }
