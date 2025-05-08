@@ -52,6 +52,10 @@ export class Search implements SearchInterface {
         return this.searchUi.getInput();
     }
 
+    public getTitleFromPlaceSchema(place: PlaceObject): string {
+        return this.searchUi.getTitleFromPlaceSchema(place);
+    }
+
     public getContainer(): HTMLElement|undefined {
         return this.searchUi.getContainer();
     }

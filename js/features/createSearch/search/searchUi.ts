@@ -76,8 +76,7 @@ export class SearchUi implements SearchUiInterface {
         return li;
     }
 
-    private getTitleFromPlaceSchema(item: PlaceObject): string {
-        console.log(item);
+    public getTitleFromPlaceSchema(item: PlaceObject): string {
         if (!item.address) {
             return item.name as string ?? '';
         }
