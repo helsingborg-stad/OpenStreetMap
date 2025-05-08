@@ -139,7 +139,9 @@ export class SearchUi implements SearchUiInterface {
         controlContainer?.appendChild(container);
         this.searchContainer = container;
 
-        this.stopDblClickZoom();
+        L.DomEvent.disableClickPropagation(this.getContainer()!);
+        L.DomEvent.disableScrollPropagation(this.getContainer()!);
+
         this.listenForInput();
         this.listenForResetButton();
 
@@ -153,12 +155,6 @@ export class SearchUi implements SearchUiInterface {
         this.input = undefined;
         return this;
     }
-
-    private stopDblClickZoom(): void {
-        this.getContainer()?.addEventListener('dblclick', (e: Event) => {
-            e.stopPropagation();
-        });
-    } 
     
     private listenForResetButton(): void {
         this.getResetButton()?.addEventListener('click', (e: Event) => {

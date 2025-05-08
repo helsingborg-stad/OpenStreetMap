@@ -99,6 +99,14 @@
     }
 
 	/* Changes to leaflet css */
+    .leaflet-control-container {
+        pointer-events: none;
+        
+        > * {
+            pointer-events: auto;
+        }
+    }
+
 	.leaflet-popup-content {
 		width: 100%;
 	}
