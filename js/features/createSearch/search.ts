@@ -56,18 +56,32 @@ export class Search implements SearchInterface {
         return this.searchUi.getResetButton();
     }
 
-    public showOrHideReset(): this {
-        this.searchUi.showOrHideReset();
+    public showSpinner(): this {
+        this.searchUi.showSpinner();
         return this;
+    }
+
+    public hideSpinner(): this {
+        this.searchUi.hideSpinner();
+        return this;
+    }
+
+    public showResetButton(): this {
+        this.searchUi.showResetButton();
+        return this;
+    }
+
+    public hideResetButton(): this {
+        this.searchUi.hideResetButton();
+        return this;
+    }
+
+    public isSearching(): boolean {
+        return this.apiInstance.isSearching();
     }
 
     public setValue(value: string): this {
         this.searchUi.setValue(value);
-        return this;
-    }
-
-    public showOrHideSpinner(show: boolean): this {
-        this.searchUi.showOrHideSpinner(show);
         return this;
     }
 
