@@ -20,8 +20,10 @@ export interface SearchUiInterface extends AddTo {
     setSearchListItems(items: PlaceObject[]|null): this;
     addListItemListener(listItemClickListener: ListItemClickListener): this;
     getResetButton(): HTMLElement|undefined;
-    showOrHideSpinner(show: boolean): this;
-    showOrHideReset(): this;
+    showSpinner(): this;
+    hideSpinner(): this;
+    showResetButton(): this;
+    hideResetButton(): this;
     setValue(value: string): this;
 }
 
@@ -30,4 +32,5 @@ export interface SearchApiInterface {
     setSearchParam(searchParam: string): this;
     search(question: string): Promise<PlaceObject[]>;
     addSearchResponseCallback(searchEventCallback: SearchCallback): this;
+    isSearching(): boolean;
 }

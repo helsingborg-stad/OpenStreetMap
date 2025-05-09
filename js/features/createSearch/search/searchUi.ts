@@ -16,10 +16,10 @@ export class SearchUi implements SearchUiInterface {
 
     private listenForInput(): void {
         const debouncedSearch = this.debounce((value: string) => {
-            this.showOrHideSpinner(true);
+            this.searchApi.isSearching() ?? this.showSpinner();
             this.searchApi.search(value)
             .then((data: PlaceObject[]) => {
-                this.showOrHideSpinner(false);
+                this.hideSpinner();
                 this.setSearchListItems(data);
             });
         }, 500);
@@ -27,7 +27,7 @@ export class SearchUi implements SearchUiInterface {
         this.getInput()?.addEventListener('input', (e: Event) => {
             const input = e.target as HTMLInputElement;
             this.currentValue = input.value;
-            this.showOrHideReset();
+            this.currentValue.length > 0 ? this.showResetButton() : this.hideResetButton();
             debouncedSearch(input.value);
         });
     }
@@ -173,31 +173,38 @@ export class SearchUi implements SearchUiInterface {
         });
     }
 
-    public showOrHideSpinner(isSearching: boolean): this {
+    public hideSpinner(): this {
+        if (!this.getSpinner()) {
+            return this;
+        }
+        this.getSpinner()!.style.display = 'none';
+        return this;
+    }
+
+    public showSpinner(): this {
         if (!this.getSpinner()) {
             return this;
         }
 
-        if (isSearching && this.currentValue.length > 0) {
-            this.getSpinner()!.style.display = 'inline-block';
-        } else {
-            this.getSpinner()!.style.display = 'none';
-        }
-
+        this.getSpinner()!.style.display = 'inline-block';
         return this;
     }
 
-    public showOrHideReset(): this {
+    public hideResetButton(): this {
         if (!this.getResetButton()) {
             return this;
         }
 
-        if (this.currentValue.length > 0) {
-            this.getResetButton()!.style.display = 'block';
-        } else {
-            this.getResetButton()!.style.display = 'none';
+        this.getResetButton()!.style.display = 'none';
+        return this;
+    }
+
+    public showResetButton(): this {
+        if (!this.getResetButton()) {
+            return this;
         }
 
+        this.getResetButton()!.style.display = 'block';
         return this;
     }
 

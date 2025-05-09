@@ -5,6 +5,7 @@ export class SearchApi implements SearchApiInterface {
     private searchParam: string|null = null;
     private searchListeners: SearchCallback[] = [];
     private searchResults: any = {};
+    private searching: boolean = false
 
     public search(question: string): Promise<PlaceObject[]> {
         if (this.apiUrl === null || this.searchParam === null) {
@@ -24,7 +25,7 @@ export class SearchApi implements SearchApiInterface {
 
         const url = new URL(this.apiUrl);
         url.searchParams.set(this.searchParam, question);
-
+        this.searching = true;
         return fetch(url.toString())
             .then(response => response.json())
             .then(data => {
@@ -42,6 +43,9 @@ export class SearchApi implements SearchApiInterface {
             .catch(error => {
                 console.error('Error:', error);
                 return Promise.resolve([]);
+            })
+            .finally(() => {
+                this.searching = false;
             });
     }
 
@@ -49,6 +53,10 @@ export class SearchApi implements SearchApiInterface {
     public addSearchResponseCallback(callback: SearchCallback): this {
         this.searchListeners.push(callback);
         return this;
+    }
+
+    public isSearching(): boolean {
+        return this.searching;
     }
 
     public setSearchParam(searchParam: string): this {
