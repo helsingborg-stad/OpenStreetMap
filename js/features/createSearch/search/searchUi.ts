@@ -16,7 +16,7 @@ export class SearchUi implements SearchUiInterface {
 
     private listenForInput(): void {
         const debouncedSearch = this.debounce((value: string) => {
-            this.searchApi.isSearching() ?? this.showSpinner();
+            this.showSpinner();
             this.searchApi.search(value)
             .then((data: PlaceObject[]) => {
                 this.hideSpinner();
