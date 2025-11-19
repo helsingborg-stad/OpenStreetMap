@@ -1,15 +1,15 @@
 import { Map as LeafletMap } from 'leaflet';
 import { MapInterface } from './mapInterface';
-import { LatLngObject, MapEvent, MapEventCallback } from '../../types';
+import { LatLngObject, InteractionEvent, InteractionEventCallback } from '../../types';
 
 export class Map implements MapInterface {
-    private listeners: { [key: string]: MapEventCallback[] } = {};
+    private listeners: { [key: string]: InteractionEventCallback[] } = {};
 
     constructor(private leafletMap: LeafletMap) {
         this.setupListeners();
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback): MapInterface {
+    public addListener(event: InteractionEvent, callback: InteractionEventCallback): MapInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
@@ -60,7 +60,7 @@ export class Map implements MapInterface {
     }
 
     private setupListeners(): void {
-       (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as MapEvent[]).forEach(event => {
+       (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick"] as InteractionEvent[]).forEach(event => {
             this.getMap().on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
                     callback({

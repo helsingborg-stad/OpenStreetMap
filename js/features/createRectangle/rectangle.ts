@@ -1,10 +1,10 @@
 import L, { Rectangle as LeafletRectangle } from "leaflet";
 import { RectangleInterface } from "./rectangleInterface";
 import { Addable } from "../../addableInterface";
-import { LatLngBoundsObject, MapEvent, MapEventCallback } from "../../types";
+import { LatLngBoundsObject, InteractionEvent, InteractionEventCallback } from "../../types";
 
 export class Rectangle implements RectangleInterface {
-    private listeners: { [key: string]: MapEventCallback[] } = {};
+    private listeners: { [key: string]: InteractionEventCallback[] } = {};
 
     constructor(private leafletRectangle: LeafletRectangle) {
         this.setupListeners();
@@ -40,7 +40,7 @@ export class Rectangle implements RectangleInterface {
         return this;
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback): RectangleInterface {
+    public addListener(event: InteractionEvent, callback: InteractionEventCallback): RectangleInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
@@ -61,7 +61,7 @@ export class Rectangle implements RectangleInterface {
     }
 
     private setupListeners(): void {
-        (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as MapEvent[]).forEach(event => {
+        (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as InteractionEvent[]).forEach(event => {
              this.getRectangle().on(event, (e) => {
                  this.listeners[event]?.forEach((callback) => {
                      callback({

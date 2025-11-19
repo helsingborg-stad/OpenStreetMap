@@ -1,15 +1,15 @@
 import { Addable } from "../../addableInterface";
-import { LatLngBoundsObject, LatLngObject, MapEvent, MapEventCallback } from "../../types";
+import { LatLngBoundsObject, LatLngObject, InteractionEvent, InteractionEventCallback } from "../../types";
 import { ImageOverlayInterface } from "./imageOverlayInterface";
 import L, { ImageOverlay as LeafletImageOverlay } from "leaflet";
 
 export class ImageOverlay implements ImageOverlayInterface {
-    private listeners: { [key: string]: MapEventCallback[] } = {};
+    private listeners: { [key: string]: InteractionEventCallback[] } = {};
     constructor(private leafletOverlay: LeafletImageOverlay) {
         this.setupListeners();
     }
 
-    public addListener(event: MapEvent, callback: MapEventCallback): ImageOverlayInterface {
+    public addListener(event: InteractionEvent, callback: InteractionEventCallback): ImageOverlayInterface {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
@@ -80,7 +80,7 @@ export class ImageOverlay implements ImageOverlayInterface {
     }
 
     private setupListeners(): void {
-        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove"] as MapEvent[]).forEach(event => {
+        ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove"] as InteractionEvent[]).forEach(event => {
             this.getImageOverlay().on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
                     callback({

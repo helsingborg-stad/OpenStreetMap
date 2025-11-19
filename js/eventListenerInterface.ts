@@ -1,4 +1,4 @@
-import { LatLngObject, MapEvent, MapEventCallback } from "./types";
+import { LatLngObject, InteractionEvent, InteractionEventCallback } from "./types";
 
 export type EventData = {
     originalEvent?: any;
@@ -6,5 +6,5 @@ export type EventData = {
 }
 
 export interface EventListenerInterface {
-    addListener(event: MapEvent, callback: MapEventCallback): void;
+    addListener(event: InteractionEvent, callback: InteractionEventCallback): void;
 }
