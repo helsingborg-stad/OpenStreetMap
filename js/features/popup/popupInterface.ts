@@ -9,6 +9,7 @@ export interface PopupInterface {
     close(): this;
     toggle(): this;
     isOpen(): boolean;
+    getBindable(): Bindable | null;
 }
 
 export type PopupOptions = {

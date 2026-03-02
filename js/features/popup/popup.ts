@@ -46,4 +46,8 @@ export class Popup implements PopupInterface {
         this.bindable?.getBindable().setPopupContent(content);
         return this;
     }
+
+    public getBindable(): Bindable | null {
+        return this.bindable;
+    }
 }
