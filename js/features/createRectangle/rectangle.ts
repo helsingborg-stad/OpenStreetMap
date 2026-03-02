@@ -2,6 +2,7 @@ import L, { Rectangle as LeafletRectangle } from "leaflet";
 import { RectangleInterface } from "./rectangleInterface";
 import { Addable } from "../../addableInterface";
 import { LatLngBoundsObject, InteractionEvent, InteractionEventCallback } from "../../types";
+import { PopupInterface } from "../popup/popupInterface";
 
 export class Rectangle implements RectangleInterface {
     private listeners: { [key: string]: InteractionEventCallback[] } = {};
