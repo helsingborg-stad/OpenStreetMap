@@ -8,13 +8,14 @@ export class Popup implements PopupInterface {
     constructor(private popup: LeafletPopup) { }
 
     public bindTo(bindable: Bindable, options: PopupOptions = {}): this {
+        this.getBindable()?.getBindable().unbindPopup();
         this.bindable = bindable;
         bindable.getBindable().bindPopup(this.popup, options);
         return this;
     }
 
     public unbind(): this {
-        this.bindable?.getBindable().unbindPopup();
+        this.getBindable()?.getBindable().unbindPopup();
         this.bindable = null;
         return this;
     }
@@ -24,26 +25,26 @@ export class Popup implements PopupInterface {
     }
 
     public open(): this {
-        this.bindable?.getBindable().openPopup();
+        this.getBindable()?.getBindable().openPopup();
         return this;
     }
 
     public close(): this {
-        this.bindable?.getBindable().closePopup();
+        this.getBindable()?.getBindable().closePopup();
         return this;
     }
 
     public toggle(): this {
-        this.bindable?.getBindable().togglePopup();
+        this.getBindable()?.getBindable().togglePopup();
         return this;
     }
 
     public isOpen(): boolean {
-        return this.bindable?.getBindable().isPopupOpen() ?? false;
+        return this.getBindable()?.getBindable().isPopupOpen() ?? false;
     }
 
     public setContent(content: string | HTMLElement): this {
-        this.bindable?.getBindable().setPopupContent(content);
+        this.getBindable()?.getBindable().setPopupContent(content);
         return this;
     }
 
