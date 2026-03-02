@@ -10,6 +10,10 @@ export class Rectangle implements RectangleInterface {
         this.setupListeners();
     }
 
+    public getBindable() {
+        return this.getRectangle();
+    }
+
     public setPosition(latLngBoundsObject: LatLngBoundsObject): RectangleInterface {
         const southWest = L.latLng(latLngBoundsObject.southWest.lat, latLngBoundsObject.southWest.lng);
         const northEast = L.latLng(latLngBoundsObject.northEast.lat, latLngBoundsObject.northEast.lng);
@@ -62,14 +66,14 @@ export class Rectangle implements RectangleInterface {
 
     private setupListeners(): void {
         (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag"] as InteractionEvent[]).forEach(event => {
-             this.getRectangle().on(event, (e) => {
-                 this.listeners[event]?.forEach((callback) => {
-                     callback({
+            this.getRectangle().on(event, (e) => {
+                this.listeners[event]?.forEach((callback) => {
+                    callback({
                         originalEvent: (e as any)?.originalEvent ?? null,
                         latLng: (e as any).latlng ?? null
                     });
-                 });
-             });
-         });
-     }
+                });
+            });
+        });
+    }
 }

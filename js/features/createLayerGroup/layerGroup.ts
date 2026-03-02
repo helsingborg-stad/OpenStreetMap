@@ -1,10 +1,14 @@
-import { Map as LeafletMap, LayerGroup as LeafletLayerGroup } from "leaflet";
+import { Map as LeafletMap, LayerGroup as LeafletLayerGroup, Layer } from "leaflet";
 import { LayerGroupInterface } from "./layerGroupInterface";
 import { Addable } from "../../addableInterface";
 
 export class LayerGroup implements LayerGroupInterface {
     constructor(private leafletLayer: LeafletLayerGroup) {
 
+    }
+
+    public getBindable(): Layer {
+        return this.getLayerGroup();
     }
 
     public removeLayerGroup(): LayerGroupInterface {
@@ -17,7 +21,7 @@ export class LayerGroup implements LayerGroupInterface {
     // check issue: https://github.com/Leaflet/Leaflet/issues/9209
     public removeLayerGroupFrom(addable: Addable): LayerGroupInterface {
         this.getLayerGroup().removeFrom(addable.getAddable() as LeafletMap);
-        
+
         return this;
     }
 
