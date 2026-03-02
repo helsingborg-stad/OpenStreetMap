@@ -49,3 +49,6 @@ export { CreateSearch } from './features/createSearch/createSearch';
 export { Search } from './features/createSearch/search';
 export * from './features/createSearch/createSearchInterface';
 export * from './features/createSearch/searchInterface';
+
+export { Popup } from './features/popup/popup';
+export * from './features/popup/popupInterface';

@@ -1,4 +1,4 @@
-import L, { Marker as LeafletMarker,  Map as LeafletMap, LayerGroup, icon } from 'leaflet';
+import L, { Marker as LeafletMarker, Map as LeafletMap, LayerGroup, icon, Layer } from 'leaflet';
 import { LatLngObject, InteractionEvent, InteractionEventCallback } from "../../types";
 import { MarkerInterface } from "./markerInterface";
 import { Addable } from "../../addableInterface";
@@ -14,6 +14,10 @@ export class Marker implements MarkerInterface {
     public addTo(addable: Addable): MarkerInterface {
         this.getMarker().addTo(addable.getAddable());
         return this;
+    }
+
+    public getBindable(): Layer {
+        return this.getMarker();
     }
 
     public addListener(event: InteractionEvent, callback: InteractionEventCallback): MarkerInterface {
@@ -43,7 +47,7 @@ export class Marker implements MarkerInterface {
         return this.marker;
     }
 
-    public getElement(): HTMLElement|undefined {
+    public getElement(): HTMLElement | undefined {
         return this.marker.getElement();
     }
 
@@ -57,7 +61,7 @@ export class Marker implements MarkerInterface {
     }
 
     private setupListeners(): MarkerInterface {
-            ( ["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart", "popupopen", "popupclose"] as InteractionEvent[]).forEach(event => {
+        (["click", "dblclick", "mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "contextmenu", "preclick", "drag", "dragend", "dragstart", "popupopen", "popupclose"] as InteractionEvent[]).forEach(event => {
             this.marker.on(event, (e) => {
                 this.listeners[event]?.forEach((callback) => {
                     callback({
