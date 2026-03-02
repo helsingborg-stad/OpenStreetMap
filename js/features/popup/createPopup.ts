@@ -1,5 +1,4 @@
 import L from "leaflet";
-import { Bindable } from "../../bindableInterface";
 import { Popup } from "./popup";
 import { PopupInterface, PopupOptions } from "./popupInterface";
 import { CreatePopupInterface } from "./createPopupInterface";

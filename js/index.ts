@@ -50,5 +50,7 @@ export { Search } from './features/createSearch/search';
 export * from './features/createSearch/createSearchInterface';
 export * from './features/createSearch/searchInterface';
 
+export { CreatePopup } from './features/popup/createPopup';
 export { Popup } from './features/popup/popup';
+export * from './features/popup/createPopupInterface';
 export * from './features/popup/popupInterface';
