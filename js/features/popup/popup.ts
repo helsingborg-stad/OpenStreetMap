@@ -1,43 +1,46 @@
+import { Popup as LeafletPopup } from "leaflet";
 import { Bindable } from "../../bindableInterface";
 import { PopupInterface, PopupOptions } from "./popupInterface";
 
+
 export class Popup implements PopupInterface {
-    public bindTo(bindable: Bindable, content: string | HTMLElement, options: PopupOptions = {}): Bindable {
-        bindable.getBindable().bindPopup(content, options);
-        return bindable;
+    constructor(private popup: LeafletPopup) { }
+
+    public bindTo(bindable: Bindable, options: PopupOptions = {}): this {
+        bindable.getBindable().bindPopup(this.popup, options);
+        return this;
     }
 
-    public unbindPopup(bindable: Bindable): Bindable {
-        bindable.getBindable().unbindPopup();
-        return bindable;
+    public unbind(): this {
+        this.popup.unbindPopup();
+        return this;
     }
 
-    public openPopup(bindable: Bindable): Bindable {
-        bindable.getBindable().openPopup();
-        return bindable;
+    public getElement(): HTMLElement | null {
+        return this.popup.getElement() ?? null;
     }
 
-    public closePopup(bindable: Bindable): Bindable {
-        bindable.getBindable().closePopup();
-        return bindable;
+    public open(): this {
+        this.popup.openPopup();
+        return this;
     }
 
-    public togglePopup(bindable: Bindable): Bindable {
-        bindable.getBindable().togglePopup();
-        return bindable;
+    public close(): this {
+        this.popup.close();
+        return this;
     }
 
-    public isPopupOpen(bindable: Bindable): boolean {
-        return bindable.getBindable().isPopupOpen();
+    public toggle(): this {
+        this.popup.toggle();
+        return this;
     }
 
-    public setPopupContent(bindable: Bindable, content: string | HTMLElement): Bindable {
-        bindable.getBindable().setPopupContent(content);
-        return bindable;
+    public isOpen(): boolean {
+        return this.popup.isOpen();
     }
 
-    public getPopup(bindable: Bindable): this | null {
-        const popup = bindable.getBindable().getPopup();
-        return popup ? this : null;
+    public setContent(content: string | HTMLElement): this {
+        this.popup.setContent(content);
+        return this;
     }
 }
