@@ -36,7 +36,8 @@ export class Popup implements PopupInterface {
         return bindable;
     }
 
-    public getPopup(): PopupInterface {
-        return this;
+    public getPopup(bindable: Bindable): this | null {
+        const popup = bindable.getBindable().getPopup();
+        return popup ? this : null;
     }
 }
