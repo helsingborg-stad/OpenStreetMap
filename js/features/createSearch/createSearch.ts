@@ -1,8 +1,8 @@
-import { SearchApi } from './search/api';
-import { CreateSearchInterface, SearchOptions } from './createSearchInterface';
-import { Search } from './search';
-import { SearchInterface } from './searchInterface';
-import { SearchUi } from './search/searchUi';
+import { SearchApi } from '@helsingborg-stad/openstreetmap/js/features/createSearch/search/api';
+import { CreateSearchInterface, SearchOptions } from '@helsingborg-stad/openstreetmap/js/features/createSearch/createSearchInterface';
+import { Search } from '@helsingborg-stad/openstreetmap/js/features/createSearch/search';
+import { SearchInterface } from '@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface';
+import { SearchUi } from '@helsingborg-stad/openstreetmap/js/features/createSearch/search/searchUi';
 
 export class CreateSearch implements CreateSearchInterface {
     constructor() {}

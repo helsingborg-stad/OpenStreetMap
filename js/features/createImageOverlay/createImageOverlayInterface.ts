@@ -1,5 +1,5 @@
-import { LatLngBoundsObject } from "../../types";
-import { ImageOverlayInterface } from "./imageOverlayInterface";
+import { LatLngBoundsObject } from "@helsingborg-stad/openstreetmap/js/types";
+import { ImageOverlayInterface } from "@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlayInterface";
 
 export type ImageOverlayOptions =  {
     url: string;

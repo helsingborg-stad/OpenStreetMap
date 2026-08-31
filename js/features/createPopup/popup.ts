@@ -1,6 +1,6 @@
 import { Popup as LeafletPopup } from "leaflet";
-import { Bindable } from "../../bindableInterface";
-import { PopupInterface, PopupOptions } from "./popupInterface";
+import { Bindable } from "@helsingborg-stad/openstreetmap/js/bindableInterface";
+import { PopupInterface, PopupOptions } from "@helsingborg-stad/openstreetmap/js/features/createPopup/popupInterface";
 
 
 export class Popup implements PopupInterface {

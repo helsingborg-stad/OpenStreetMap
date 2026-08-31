@@ -1,6 +1,6 @@
 import { Map as LeafletMap, LayerGroup as LeafletLayerGroup, Layer } from "leaflet";
-import { LayerGroupInterface } from "./layerGroupInterface";
-import { Addable } from "../../addableInterface";
+import { LayerGroupInterface } from "@helsingborg-stad/openstreetmap/js/features/createLayerGroup/layerGroupInterface";
+import { Addable } from "@helsingborg-stad/openstreetmap/js/addableInterface";
 
 export class LayerGroup implements LayerGroupInterface {
     constructor(private leafletLayer: LeafletLayerGroup) {

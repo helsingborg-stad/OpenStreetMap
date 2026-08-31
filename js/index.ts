@@ -1,56 +1,56 @@
 /* Classes and Methods */
 // Main interfaces
-export * from './types';
-export * from './eventListenerInterface';
-export * from './addableInterface';
-export * from './addToInterface';
+export * from '@helsingborg-stad/openstreetmap/js/types';
+export * from '@helsingborg-stad/openstreetmap/js/eventListenerInterface';
+export * from '@helsingborg-stad/openstreetmap/js/addableInterface';
+export * from '@helsingborg-stad/openstreetmap/js/addToInterface';
 
 // Helpers
-export { TilesHelper } from './helper/TilesHelper';
-export * from './helper/TilesHelperInterface';
+export { TilesHelper } from '@helsingborg-stad/openstreetmap/js/helper/TilesHelper';
+export * from '@helsingborg-stad/openstreetmap/js/helper/TilesHelperInterface';
 
 // Features
-export { CreateMap } from './features/createMap/createMap';
-export { Map } from './features/createMap/map';
-export * from './features/createMap/createMapInterface';
-export * from './features/createMap/mapInterface';
+export { CreateMap } from '@helsingborg-stad/openstreetmap/js/features/createMap/createMap';
+export { Map } from '@helsingborg-stad/openstreetmap/js/features/createMap/map';
+export * from '@helsingborg-stad/openstreetmap/js/features/createMap/createMapInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
 
-export { CreateTileLayer } from './features/createTileLayer/createTileLayer';
-export { TileLayer } from './features/createTileLayer/tileLayer';
-export * from './features/createTileLayer/createTileLayerInterface';
-export * from './features/createTileLayer/tileLayerInterface';
+export { CreateTileLayer } from '@helsingborg-stad/openstreetmap/js/features/createTileLayer/createTileLayer';
+export { TileLayer } from '@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayer';
+export * from '@helsingborg-stad/openstreetmap/js/features/createTileLayer/createTileLayerInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayerInterface';
 
-export { CreateLayerGroup } from './features/createLayerGroup/createLayerGroup';
-export { LayerGroup } from './features/createLayerGroup/layerGroup';
-export * from './features/createLayerGroup/createLayerGroupInterface';
-export * from './features/createLayerGroup/layerGroupInterface';
+export { CreateLayerGroup } from '@helsingborg-stad/openstreetmap/js/features/createLayerGroup/createLayerGroup';
+export { LayerGroup } from '@helsingborg-stad/openstreetmap/js/features/createLayerGroup/layerGroup';
+export * from '@helsingborg-stad/openstreetmap/js/features/createLayerGroup/createLayerGroupInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createLayerGroup/layerGroupInterface';
 
-export { CreateRectangle } from './features/createRectangle/createRectangle';
-export { Rectangle } from './features/createRectangle/rectangle';
-export * from './features/createRectangle/createRectangleInterface';
-export * from './features/createRectangle/rectangleInterface';
+export { CreateRectangle } from '@helsingborg-stad/openstreetmap/js/features/createRectangle/createRectangle';
+export { Rectangle } from '@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangle';
+export * from '@helsingborg-stad/openstreetmap/js/features/createRectangle/createRectangleInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangleInterface';
 
-export { CreateMarker } from './features/createMarker/createMarker';
-export { Marker } from './features/createMarker/marker';
-export * from './features/createMarker/createMarkerInterface';
-export * from './features/createMarker/markerInterface';
+export { CreateMarker } from '@helsingborg-stad/openstreetmap/js/features/createMarker/createMarker';
+export { Marker } from '@helsingborg-stad/openstreetmap/js/features/createMarker/marker';
+export * from '@helsingborg-stad/openstreetmap/js/features/createMarker/createMarkerInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createMarker/markerInterface';
 
-export { CreateImageOverlay } from './features/createImageOverlay/createImageOverlay';
-export { ImageOverlay } from './features/createImageOverlay/imageOverlay';
-export * from './features/createImageOverlay/createImageOverlayInterface';
-export * from './features/createImageOverlay/imageOverlayInterface';
+export { CreateImageOverlay } from '@helsingborg-stad/openstreetmap/js/features/createImageOverlay/createImageOverlay';
+export { ImageOverlay } from '@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlay';
+export * from '@helsingborg-stad/openstreetmap/js/features/createImageOverlay/createImageOverlayInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlayInterface';
 
-export { CreateAttribution } from './features/createAttribution/createAttribution';
-export { Attribution } from './features/createAttribution/attribution';
-export * from './features/createAttribution/createAttributionInterface';
-export * from './features/createAttribution/attributionInterface';
+export { CreateAttribution } from '@helsingborg-stad/openstreetmap/js/features/createAttribution/createAttribution';
+export { Attribution } from '@helsingborg-stad/openstreetmap/js/features/createAttribution/attribution';
+export * from '@helsingborg-stad/openstreetmap/js/features/createAttribution/createAttributionInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createAttribution/attributionInterface';
 
-export { CreateSearch } from './features/createSearch/createSearch';
-export { Search } from './features/createSearch/search';
-export * from './features/createSearch/createSearchInterface';
-export * from './features/createSearch/searchInterface';
+export { CreateSearch } from '@helsingborg-stad/openstreetmap/js/features/createSearch/createSearch';
+export { Search } from '@helsingborg-stad/openstreetmap/js/features/createSearch/search';
+export * from '@helsingborg-stad/openstreetmap/js/features/createSearch/createSearchInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface';
 
-export { CreatePopup } from './features/createPopup/createPopup';
-export { Popup } from './features/createPopup/popup';
-export * from './features/createPopup/createPopupInterface';
-export * from './features/createPopup/popupInterface';
+export { CreatePopup } from '@helsingborg-stad/openstreetmap/js/features/createPopup/createPopup';
+export { Popup } from '@helsingborg-stad/openstreetmap/js/features/createPopup/popup';
+export * from '@helsingborg-stad/openstreetmap/js/features/createPopup/createPopupInterface';
+export * from '@helsingborg-stad/openstreetmap/js/features/createPopup/popupInterface';

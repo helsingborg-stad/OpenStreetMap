@@ -1,8 +1,8 @@
 import L from "leaflet";
-import { LatLngBoundsObject } from "../../types";
-import { CreateRectangleInterface, RectangleOptions } from "./createRectangleInterface";
-import { Rectangle } from "./rectangle";
-import { RectangleInterface } from "./rectangleInterface";
+import { LatLngBoundsObject } from "@helsingborg-stad/openstreetmap/js/types";
+import { CreateRectangleInterface, RectangleOptions } from "@helsingborg-stad/openstreetmap/js/features/createRectangle/createRectangleInterface";
+import { Rectangle } from "@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangle";
+import { RectangleInterface } from "@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangleInterface";
 
 export class CreateRectangle implements CreateRectangleInterface {
     public create(

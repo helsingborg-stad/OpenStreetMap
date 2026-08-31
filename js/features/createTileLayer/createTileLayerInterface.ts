@@ -1,4 +1,4 @@
-import { TileLayerInterface } from "./tileLayerInterface";
+import { TileLayerInterface } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayerInterface";
 
 export type AttributionPosition = "topleft"|"topright"|"bottomleft"|"bottomright";
 

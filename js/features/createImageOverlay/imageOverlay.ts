@@ -1,6 +1,6 @@
-import { Addable } from "../../addableInterface";
-import { LatLngBoundsObject, LatLngObject, InteractionEvent, InteractionEventCallback } from "../../types";
-import { ImageOverlayInterface } from "./imageOverlayInterface";
+import { Addable } from "@helsingborg-stad/openstreetmap/js/addableInterface";
+import { LatLngBoundsObject, LatLngObject, InteractionEvent, InteractionEventCallback } from "@helsingborg-stad/openstreetmap/js/types";
+import { ImageOverlayInterface } from "@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlayInterface";
 import L, { Layer, ImageOverlay as LeafletImageOverlay } from "leaflet";
 
 export class ImageOverlay implements ImageOverlayInterface {

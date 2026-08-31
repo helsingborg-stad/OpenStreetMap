@@ -1,5 +1,5 @@
-import { LatLngObject } from '../../types';
-import { MapInterface } from './mapInterface';
+import { LatLngObject } from '@helsingborg-stad/openstreetmap/js/types';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
 
 export type ConfigOptions = {
     id: string;

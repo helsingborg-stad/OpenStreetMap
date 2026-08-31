@@ -1,5 +1,5 @@
-import { AddTo } from "../../addToInterface";
-import { AttributionPosition } from "../createTileLayer/createTileLayerInterface";
+import { AddTo } from "@helsingborg-stad/openstreetmap/js/addToInterface";
+import { AttributionPosition } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/createTileLayerInterface";
 
 export interface AttributionInterface extends AddTo {
     addAttribution(attribution: string): AttributionInterface;

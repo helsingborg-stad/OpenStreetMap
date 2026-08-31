@@ -1,7 +1,7 @@
 import L, { Map as LeafletMap } from 'leaflet';
-import { CreateMapInterface, ConfigOptions } from './createMapInterface';
-import { MapInterface } from './mapInterface';
-import { Map } from './map';
+import { CreateMapInterface, ConfigOptions } from '@helsingborg-stad/openstreetmap/js/features/createMap/createMapInterface';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
+import { Map } from '@helsingborg-stad/openstreetmap/js/features/createMap/map';
 
 export class CreateMap implements CreateMapInterface {
     constructor(private options: ConfigOptions) {

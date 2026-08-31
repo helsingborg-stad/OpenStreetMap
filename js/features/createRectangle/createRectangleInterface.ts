@@ -1,5 +1,5 @@
-import { LatLngBoundsObject } from "../../types";
-import { RectangleInterface } from "./rectangleInterface";
+import { LatLngBoundsObject } from "@helsingborg-stad/openstreetmap/js/types";
+import { RectangleInterface } from "@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangleInterface";
 
 export type RectangleOptions = {
     stroke?: boolean;

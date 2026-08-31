@@ -1,4 +1,4 @@
-import { SearchInterface } from "./searchInterface";
+import { SearchInterface } from "@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface";
 
 export interface CreateSearchInterface {
     create(searchOptions: SearchOptions): SearchInterface;

@@ -1,7 +1,7 @@
-import { LatLngBoundsObject } from "../../types";
-import { CreateImageOverlayInterface, ImageOverlayOptions } from "./createImageOverlayInterface";
-import { ImageOverlay } from "./imageOverlay";
-import { ImageOverlayInterface } from "./imageOverlayInterface";
+import { LatLngBoundsObject } from "@helsingborg-stad/openstreetmap/js/types";
+import { CreateImageOverlayInterface, ImageOverlayOptions } from "@helsingborg-stad/openstreetmap/js/features/createImageOverlay/createImageOverlayInterface";
+import { ImageOverlay } from "@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlay";
+import { ImageOverlayInterface } from "@helsingborg-stad/openstreetmap/js/features/createImageOverlay/imageOverlayInterface";
 import L from 'leaflet';
 
 export class CreateImageOverlay implements CreateImageOverlayInterface {

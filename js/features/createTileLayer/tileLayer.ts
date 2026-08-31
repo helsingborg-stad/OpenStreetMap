@@ -1,5 +1,5 @@
-import { Addable } from "../../addableInterface";
-import { TileLayerInterface } from "./tileLayerInterface";
+import { Addable } from "@helsingborg-stad/openstreetmap/js/addableInterface";
+import { TileLayerInterface } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayerInterface";
 
 export class TileLayer implements TileLayerInterface {
     constructor(

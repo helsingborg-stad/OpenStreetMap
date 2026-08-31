@@ -1,7 +1,7 @@
 import L, { Map as LeafletMap} from 'leaflet';
-import { MapInterface } from '../createMap/mapInterface';
-import { AttributionPosition } from '../createTileLayer/createTileLayerInterface';
-import { AttributionInterface } from './attributionInterface';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
+import { AttributionPosition } from '@helsingborg-stad/openstreetmap/js/features/createTileLayer/createTileLayerInterface';
+import { AttributionInterface } from '@helsingborg-stad/openstreetmap/js/features/createAttribution/attributionInterface';
 
 export class Attribution implements AttributionInterface {
     constructor(private leafletAttribution: L.Control.Attribution) {}

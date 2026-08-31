@@ -1,6 +1,6 @@
 import L, { Marker as LeafletMarker } from 'leaflet';
-import { CreateMarkerInterface, MarkerOptions, TooltipOptions } from './createMarkerInterface';
-import { Marker } from './marker';
+import { CreateMarkerInterface, MarkerOptions, TooltipOptions } from '@helsingborg-stad/openstreetmap/js/features/createMarker/createMarkerInterface';
+import { Marker } from '@helsingborg-stad/openstreetmap/js/features/createMarker/marker';
 
 export class CreateMarker implements CreateMarkerInterface {
     constructor() {

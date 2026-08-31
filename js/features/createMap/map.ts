@@ -1,6 +1,6 @@
 import { Map as LeafletMap } from 'leaflet';
-import { MapInterface } from './mapInterface';
-import { LatLngObject, InteractionEvent, InteractionEventCallback } from '../../types';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
+import { LatLngObject, InteractionEvent, InteractionEventCallback } from '@helsingborg-stad/openstreetmap/js/types';
 
 export class Map implements MapInterface {
     private listeners: { [key: string]: InteractionEventCallback[] } = {};

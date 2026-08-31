@@ -1,7 +1,7 @@
 import L from 'leaflet';
-import { CreateTileLayerInterface, TileLayerOptions } from "./createTileLayerInterface";
-import { TileLayer } from "./tileLayer";
-import { TileLayerInterface } from "./tileLayerInterface";
+import { CreateTileLayerInterface, TileLayerOptions } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/createTileLayerInterface";
+import { TileLayer } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayer";
+import { TileLayerInterface } from "@helsingborg-stad/openstreetmap/js/features/createTileLayer/tileLayerInterface";
 
 export class CreateTileLayer implements CreateTileLayerInterface {
     constructor() {}

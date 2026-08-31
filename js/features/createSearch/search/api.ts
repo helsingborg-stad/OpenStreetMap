@@ -1,4 +1,4 @@
-import { PlaceObject, SearchApiInterface, SearchCallback } from "../searchInterface";
+import { PlaceObject, SearchApiInterface, SearchCallback } from "@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface";
 
 export class SearchApi implements SearchApiInterface {
     private apiUrl: URL|null = null;

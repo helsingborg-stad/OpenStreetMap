@@ -1,5 +1,5 @@
-import { LatLngObject } from "../../types";
-import { MarkerInterface } from "./markerInterface";
+import { LatLngObject } from "@helsingborg-stad/openstreetmap/js/types";
+import { MarkerInterface } from "@helsingborg-stad/openstreetmap/js/features/createMarker/markerInterface";
 
 export type TooltipOptions = {
     content: HTMLElement|string;

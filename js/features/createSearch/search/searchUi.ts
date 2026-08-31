@@ -1,7 +1,7 @@
 import L, { Map as LeafletMap} from 'leaflet';
-import { MapInterface } from '../../createMap/mapInterface';
-import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchUiInterface } from '../searchInterface';
-import { SearchOptions } from '../createSearchInterface';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
+import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchUiInterface } from '@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface';
+import { SearchOptions } from '@helsingborg-stad/openstreetmap/js/features/createSearch/createSearchInterface';
 
 export class SearchUi implements SearchUiInterface {
     private searchContainer: HTMLElement|undefined = undefined;

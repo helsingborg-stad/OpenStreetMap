@@ -1,7 +1,7 @@
 import L from 'leaflet';
-import { Attribution } from "./attribution";
-import { AttributionInterface } from "./attributionInterface";
-import { AttributionOptions } from './createAttributionInterface';
+import { Attribution } from "@helsingborg-stad/openstreetmap/js/features/createAttribution/attribution";
+import { AttributionInterface } from "@helsingborg-stad/openstreetmap/js/features/createAttribution/attributionInterface";
+import { AttributionOptions } from '@helsingborg-stad/openstreetmap/js/features/createAttribution/createAttributionInterface';
 
 export class CreateAttribution {
     constructor() {}

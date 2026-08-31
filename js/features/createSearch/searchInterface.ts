@@ -1,5 +1,5 @@
-import { AddTo } from "../../addToInterface";
-import { MapInterface } from "../createMap/mapInterface";
+import { AddTo } from "@helsingborg-stad/openstreetmap/js/addToInterface";
+import { MapInterface } from "@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface";
 import { Place } from 'schema-dts';
 
 export type PlaceObject = Exclude<Place, string | URL>;

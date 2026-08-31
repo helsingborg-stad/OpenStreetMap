@@ -1,4 +1,4 @@
-import { Bindable } from "../../bindableInterface";
+import { Bindable } from "@helsingborg-stad/openstreetmap/js/bindableInterface";
 
 export interface PopupInterface {
     setContent(content: string | HTMLElement): this;

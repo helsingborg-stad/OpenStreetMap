@@ -1,8 +1,8 @@
-import { MapInterface } from "../createMap/mapInterface";
+import { MapInterface } from "@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface";
 import L from 'leaflet';
-import { CreateLayerGroupInterface } from "./createLayerGroupInterface";
-import { LayerGroup } from "./layerGroup";
-import { LayerGroupInterface } from "./layerGroupInterface";
+import { CreateLayerGroupInterface } from "@helsingborg-stad/openstreetmap/js/features/createLayerGroup/createLayerGroupInterface";
+import { LayerGroup } from "@helsingborg-stad/openstreetmap/js/features/createLayerGroup/layerGroup";
+import { LayerGroupInterface } from "@helsingborg-stad/openstreetmap/js/features/createLayerGroup/layerGroupInterface";
 
 export class CreateLayerGroup implements CreateLayerGroupInterface {
     constructor() {}

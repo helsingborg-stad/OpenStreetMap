@@ -1,4 +1,4 @@
-import { LatLngObject, InteractionEvent, InteractionEventCallback } from "./types";
+import { LatLngObject, InteractionEvent, InteractionEventCallback } from "@helsingborg-stad/openstreetmap/js/types";
 
 export type EventData = {
     originalEvent?: any;

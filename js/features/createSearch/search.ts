@@ -1,5 +1,5 @@
-import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchCallback, SearchInterface, SearchUiInterface } from './searchInterface';
-import { MapInterface } from '../createMap/mapInterface';
+import { ListItemClickListener, PlaceObject, SearchApiInterface, SearchCallback, SearchInterface, SearchUiInterface } from '@helsingborg-stad/openstreetmap/js/features/createSearch/searchInterface';
+import { MapInterface } from '@helsingborg-stad/openstreetmap/js/features/createMap/mapInterface';
 
 export class Search implements SearchInterface {
     public apiUrl: string = '';

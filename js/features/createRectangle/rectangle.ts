@@ -1,8 +1,8 @@
 import L, { Rectangle as LeafletRectangle } from "leaflet";
-import { RectangleInterface } from "./rectangleInterface";
-import { Addable } from "../../addableInterface";
-import { LatLngBoundsObject, InteractionEvent, InteractionEventCallback } from "../../types";
-import { PopupInterface } from "../createPopup/popupInterface";
+import { RectangleInterface } from "@helsingborg-stad/openstreetmap/js/features/createRectangle/rectangleInterface";
+import { Addable } from "@helsingborg-stad/openstreetmap/js/addableInterface";
+import { LatLngBoundsObject, InteractionEvent, InteractionEventCallback } from "@helsingborg-stad/openstreetmap/js/types";
+import { PopupInterface } from "@helsingborg-stad/openstreetmap/js/features/createPopup/popupInterface";
 
 export class Rectangle implements RectangleInterface {
     private listeners: { [key: string]: InteractionEventCallback[] } = {};

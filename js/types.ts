@@ -1,4 +1,4 @@
-import { EventData } from "./eventListenerInterface";
+import { EventData } from "@helsingborg-stad/openstreetmap/js/eventListenerInterface";
 
 export type InteractionEvent = "click" | "dblclick" | "mousedown" | "mouseup" | "mouseover" | "mouseout" | "mousemove" | "contextmenu" | "preclick" | "drag" | "dragstart" | "dragend" | "popupopen" | "popupclose";
 

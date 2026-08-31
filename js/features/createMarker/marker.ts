@@ -1,8 +1,8 @@
 import L, { Marker as LeafletMarker, Map as LeafletMap, LayerGroup, icon, Layer } from 'leaflet';
-import { LatLngObject, InteractionEvent, InteractionEventCallback } from "../../types";
-import { MarkerInterface } from "./markerInterface";
-import { Addable } from "../../addableInterface";
-import { IconOptions } from './createMarkerInterface';
+import { LatLngObject, InteractionEvent, InteractionEventCallback } from "@helsingborg-stad/openstreetmap/js/types";
+import { MarkerInterface } from "@helsingborg-stad/openstreetmap/js/features/createMarker/markerInterface";
+import { Addable } from "@helsingborg-stad/openstreetmap/js/addableInterface";
+import { IconOptions } from '@helsingborg-stad/openstreetmap/js/features/createMarker/createMarkerInterface';
 
 export class Marker implements MarkerInterface {
     private listeners: { [key: string]: InteractionEventCallback[] } = {};
